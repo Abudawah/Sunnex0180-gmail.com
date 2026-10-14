@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>School Portals | Al-Lateef Group of Schools</title>
+<link rel="stylesheet" href="../shared.css">
+<style>
+.port-g{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s-sm);}
+.pf-card{border:1px solid var(--card-border);border-top:2px solid var(--primary);border-radius:var(--r-md);overflow:hidden;background:var(--surface);display:flex;flex-direction:column;transition:border-color .3s;}
+.pf-card:hover{border-color:var(--tertiary);border-top-color:var(--primary-hi);}
+.pf-head{padding:var(--s-md) var(--s-md) var(--s-sm);}
+.pf-ic{display:block;font-size:14px;line-height:21px;color:var(--primary-hi);margin-bottom:var(--s-sm);}
+.pf-head h3{font-size:clamp(26px,3.2vw,34px);line-height:1.2;font-weight:300;color:var(--on-surface);margin-bottom:var(--s-xs);}
+.pf-head p{font-size:15px;line-height:23px;color:var(--muted);}
+.pf-body{padding:0 var(--s-md) var(--s-md);display:flex;flex-direction:column;flex:1;}
+.pf-feats{margin-bottom:var(--s-md);}
+.pf-body .btn{margin-top:auto;}
+/* inline portal login modal */
+.pl-ov{display:none;position:fixed;inset:0;background:rgba(5,12,7,.82);z-index:600;align-items:center;justify-content:center;padding:20px;}
+.pl-ov.open{display:flex;animation:mFd .22s ease;}
+.pl-box{background:var(--surface);border:1px solid var(--card-border);border-radius:var(--r-md);width:100%;max-width:480px;padding:var(--s-md);position:relative;max-height:90vh;overflow-y:auto;animation:mUp .28s ease;}
+.pl-close{position:absolute;top:16px;right:16px;background:none;border:1px solid var(--card-border);width:40px;height:40px;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;color:var(--on-surface);font-family:inherit;transition:border-color .2s,color .2s;}
+.pl-close:hover{border-color:var(--primary-hi);color:var(--primary-hi);}
+.pl-box h2{font-size:clamp(26px,3.2vw,34px);line-height:1.2;font-weight:300;color:var(--on-surface);margin-bottom:var(--s-xs);padding-right:48px;}
+.pl-box>p{font-size:14px;line-height:21px;color:var(--muted);margin-bottom:var(--s-md);}
+.pl-tabs{display:flex;border-bottom:1px solid var(--line);margin-bottom:var(--s-md);}
+.pl-tab{flex:1;padding:12px 0;text-align:left;border:none;background:none;font-size:16px;cursor:pointer;color:var(--faint);font-family:inherit;position:relative;transition:color .2s;}
+.pl-tab::after{content:'';position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--primary);transform:scaleX(0);transform-origin:left;transition:transform .25s;}
+.pl-tab.active{color:var(--on-surface);}
+.pl-tab.active::after{transform:scaleX(1);}
+.help-g{display:grid;grid-template-columns:1fr 1.4fr;gap:var(--s-lg);align-items:start;}
+.faq-h{font-size:clamp(26px,3.2vw,34px);line-height:1.2;font-weight:300;color:var(--on-surface);margin-bottom:var(--s-sm);}
+@media(max-width:960px){
+  .port-g,.help-g{grid-template-columns:1fr;gap:var(--s-md);}
+  .pf-head{padding:var(--s-sm) var(--s-sm) var(--s-xs);}
+  .pf-body{padding:0 var(--s-sm) var(--s-sm);}
+  .pl-box{padding:var(--s-sm);}
+}
+</style>
+</head>
+<body>
+<div id="siteNav"></div>
+
+<div class="page-hero">
+  <div class="ph-bg" style="background-image:url('../images/building-classrooms.jpg');"></div>
+  <div class="ph-ov"></div>
+  <div class="ph-inner">
+    <div class="breadcrumb"><a href="../index.html">Home</a><span>/</span><span class="here">School Portals</span></div>
+    <h1 class="ha1">Your School <em>Portal</em></h1>
+    <p class="ha2">Dedicated secure portals for every member of the Al-Lateef community — students, teachers, parents, and management.</p>
+  </div>
+</div>
+
+<!-- PORTALS GRID -->
+<section class="sec">
+<div class="sec-inner">
+  <div class="s-head">
+    <span class="s-lbl rv">Digital Access</span>
+    <h2 class="s-title rv">Choose Your <em>Portal</em></h2>
+    <p class="s-sub rv">Select your portal below to login or register. Each portal is tailored to your specific role in the Al-Lateef community.</p>
+  </div>
+  <div class="port-g">
+    <div class="pf-card stag">
+      <div class="pf-head"><span class="pf-ic">01</span><h3>Student Portal</h3><p>Access your academic world — results, timetables, assignments, and learning resources all in one place.</p></div>
+      <div class="pf-body">
+        <ul class="pf-feats"><li>View exam results &amp; full report cards</li><li>Download class timetables &amp; schedules</li><li>Submit &amp; receive assignments digitally</li><li>Access e-library &amp; study materials</li><li>Check school fee payment history</li><li>View attendance records</li><li>Receive school announcements &amp; alerts</li></ul>
+        <button class="btn btn-primary btn-block" onclick="showPLModal('student','Student Portal','Access your results, timetables, assignments and e-library','Student ID (e.g. AL-2025-001)')">Login as Student <span class="arr">→</span></button>
+      </div>
+    </div>
+    <div class="pf-card stag">
+      <div class="pf-head"><span class="pf-ic">02</span><h3>Teacher Portal</h3><p>Manage your classes, record grades, mark attendance, upload resources, and communicate with parents.</p></div>
+      <div class="pf-body">
+        <ul class="pf-feats"><li>Enter &amp; manage student scores and grades</li><li>Take and record daily attendance digitally</li><li>Upload lesson notes, slides &amp; materials</li><li>Communicate directly with parents</li><li>Access payslips, HR &amp; leave applications</li><li>View class timetables &amp; rosters</li><li>Receive school circulars &amp; staff notices</li></ul>
+        <button class="btn btn-primary btn-block" onclick="showPLModal('teacher','Teacher / Staff Portal','Manage classes, grades, attendance and resources','Staff ID')">Login as Staff <span class="arr">→</span></button>
+      </div>
+    </div>
+    <div class="pf-card stag">
+      <div class="pf-head"><span class="pf-ic">03</span><h3>Parent Portal</h3><p>Stay fully connected to your child's education — track progress, pay fees, view reports, and communicate with teachers.</p></div>
+      <div class="pf-body">
+        <ul class="pf-feats"><li>Track child's academic performance in real time</li><li>Pay school fees securely online</li><li>View &amp; download term report cards</li><li>Monitor attendance records</li><li>Receive school notices &amp; event reminders</li><li>Send messages directly to class teachers</li><li>Update emergency contact information</li></ul>
+        <button class="btn btn-primary btn-block" onclick="showPLModal('parent','Parent Portal','Track your child\'s progress and pay fees','Child\'s Student ID or Phone Number')">Login as Parent <span class="arr">→</span></button>
+      </div>
+    </div>
+    <div class="pf-card stag">
+      <div class="pf-head"><span class="pf-ic">04</span><h3>Management Portal</h3><p>Full oversight of school operations — analytics, finances, staff management, admissions, and communications.</p></div>
+      <div class="pf-body">
+        <ul class="pf-feats"><li>School-wide performance analytics dashboard</li><li>Financial reports &amp; fee collection tracking</li><li>Staff management, payroll &amp; HR tools</li><li>Manage student admissions &amp; enrolments</li><li>Academic calendar &amp; timetable management</li><li>Send school-wide announcements</li><li>Proprietor-level access &amp; audit reports</li></ul>
+        <button class="btn btn-primary btn-block" onclick="showPLModal('mgmt','Management Portal','Full school administration and analytics','Admin Username')">Management Login <span class="arr">→</span></button>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<!-- HELP & FAQS -->
+<section class="sec sec-alt">
+<div class="sec-inner">
+  <div class="help-g">
+    <div class="rv-l">
+      <span class="s-lbl">Need Help?</span>
+      <h2 class="s-title">Portal <em>Support</em></h2>
+      <p class="lead" style="margin-bottom:var(--s-md);">Having trouble accessing your portal, or need your login details for the first time? Our admin team is here to help.</p>
+      <div class="irow"><span class="k">Call the Admin Office</span><span class="v">+234 800 000 0000 <small>Mon–Fri, 8am–4pm</small></span></div>
+      <div class="irow"><span class="k">Email IT Support</span><span class="v">portal@al-lateef.edu.ng</span></div>
+      <div class="irow"><span class="k">Visit the School</span><span class="v">Al-Lateef Group of Schools, Ifo, Ogun State</span></div>
+    </div>
+    <div class="rv-r">
+      <h3 class="faq-h">Portal FAQs</h3>
+      <div class="faq-item"><div class="faq-q"><h4>I forgot my portal password. What do I do?</h4><div class="faq-tog">+</div></div><div class="faq-ans">Click "Forgot Password" on the login screen and enter your registered email address. A reset link will be sent within 5 minutes. If you don't receive it, check your spam folder or contact the admin office.</div></div>
+      <div class="faq-item"><div class="faq-q"><h4>How do I get my Student ID?</h4><div class="faq-tog">+</div></div><div class="faq-ans">Your Student ID is printed on your school ID card and at the top of every report card (format: AL-YYYY-XXX). If you can't find it, the admin office can provide it immediately.</div></div>
+      <div class="faq-item"><div class="faq-q"><h4>Can I access the portal on my phone?</h4><div class="faq-tog">+</div></div><div class="faq-ans">Yes. All portals are fully mobile-responsive and work on any modern smartphone or tablet browser. No app download is required — simply open your browser and log in.</div></div>
+      <div class="faq-item"><div class="faq-q"><h4>I'm a new parent — how do I register?</h4><div class="faq-tog">+</div></div><div class="faq-ans">After your child is enrolled, the admin office will send you a welcome email with your initial login credentials. You can then set your own password using the "Forgot Password" link on the login page.</div></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- PORTAL LOGIN MODAL (local to this page) -->
+<div class="pl-ov" id="plOv">
+  <div class="pl-box">
+    <button class="pl-close" onclick="closePL()" aria-label="Close">✕</button>
+    <div class="m-badge">Secure Login</div>
+    <h2 id="plTitle"></h2>
+    <p id="plDesc"></p>
+    <div class="pl-tabs" id="plTabs">
+      <button class="pl-tab active" onclick="plTab('login',this)">Login</button>
+      <button class="pl-tab" onclick="plTab('reg',this)">Register</button>
+    </div>
+    <div id="plLog">
+      <div class="fg"><label id="plIdLbl">Username / ID</label><input type="text" id="plId" placeholder="Enter your ID"></div>
+      <div class="fg"><label>Password</label><input type="password" placeholder="Enter your password"></div>
+      <button class="sbtn" onclick="doPlLogin()">Login to Portal</button>
+      <p class="form-note"><a href="#">Forgot password?</a> &nbsp;·&nbsp; <a href="contact.html">Get help</a></p>
+    </div>
+    <div id="plReg" style="display:none;">
+      <div class="f2">
+        <div class="fg"><label>First Name</label><input type="text" placeholder="First name"></div>
+        <div class="fg"><label>Last Name</label><input type="text" placeholder="Last name"></div>
+      </div>
+      <div class="fg"><label id="plRegIdLbl">ID / Reference No.</label><input type="text" placeholder="ID from school"></div>
+      <div class="fg"><label>Email</label><input type="email" placeholder="email@example.com"></div>
+      <div class="fg"><label>Phone</label><input type="tel" placeholder="+234 ..."></div>
+      <div class="fg"><label>Password</label><input type="password" placeholder="Create a strong password"></div>
+      <button class="sbtn" onclick="doPlReg()">Create Account</button>
+    </div>
+  </div>
+</div>
+
+<div id="siteFooter"></div>
+<div id="mRoot"></div>
+<script src="../shared.js"></script>
+<script>
+window._pg='portals';
+var plCurType='student';
+function showPLModal(type,title,desc,idLabel){
+  plCurType=type;
+  document.getElementById('plTitle').textContent=title;
+  document.getElementById('plDesc').textContent=desc;
+  document.getElementById('plIdLbl').textContent=idLabel;
+  document.getElementById('plRegIdLbl').textContent=idLabel;
+  document.getElementById('plOv').classList.add('open');
+  document.body.style.overflow='hidden';
+  plTab('login',document.querySelector('.pl-tab'));
+}
+function closePL(){document.getElementById('plOv').classList.remove('open');document.body.style.overflow='';}
+document.getElementById('plOv').addEventListener('click',function(e){if(e.target===this)closePL();});
+function plTab(t,btn){
+  document.querySelectorAll('.pl-tab').forEach(function(b){b.classList.remove('active');});
+  btn.classList.add('active');
+  document.getElementById('plLog').style.display=t==='login'?'block':'none';
+  document.getElementById('plReg').style.display=t==='reg'?'block':'none';
+}
+function doPlLogin(){
+  var id=document.getElementById('plId').value;
+  if(!id){alert('Please enter your ID.');return;}
+  alert('Welcome!\n\nLogging you into your portal.\nPlease contact the admin office for your portal credentials:\nEmail: portal@al-lateef.edu.ng\nPhone: +234 800 000 0000');
+  closePL();
+}
+function doPlReg(){
+  alert('Registration submitted!\n\nYou will receive login details by email within 24 hours.\nFor urgent help: +234 800 000 0000');
+  closePL();
+}
+</script>
+</body></html>

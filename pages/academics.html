@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Academics | Al-Lateef Group of Schools</title>
+<link rel="stylesheet" href="../shared.css">
+<style>
+/* curriculum tabs */
+.ctabs{display:flex;border-bottom:1px solid var(--line);margin-bottom:var(--s-md);overflow-x:auto;}
+.ctab{flex-shrink:0;padding:16px 0;margin-right:var(--s-md);border:none;background:none;font-size:18px;line-height:27px;font-weight:300;cursor:pointer;font-family:inherit;color:var(--faint);position:relative;transition:color .2s;}
+.ctab::after{content:'';position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--primary);transform:scaleX(0);transform-origin:left;transition:transform .25s;}
+.ctab:hover{color:var(--on-surface);}
+.ctab.active{color:var(--on-surface);}
+.ctab.active::after{transform:scaleX(1);}
+.c-intro{font-size:18px;line-height:27px;font-weight:300;color:var(--muted);margin-bottom:var(--s-md);max-width:760px;}
+.subj-g{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line);counter-reset:subj;}
+.subj-c{padding:var(--s-sm);min-height:112px;display:flex;flex-direction:column;justify-content:space-between;gap:var(--s-sm);border-right:1px solid var(--line);border-bottom:1px solid var(--line);transition:background .2s;}
+.subj-c::before{counter-increment:subj;content:counter(subj,decimal-leading-zero);font-size:12px;line-height:18px;color:var(--primary-hi);}
+.subj-c:hover{background:rgba(212,241,224,.04);}
+.subj-c span{font-size:18px;line-height:26px;font-weight:300;color:var(--on-surface);}
+/* co-curricular */
+.co-g{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s-sm);}
+.co-c{border:1px solid var(--card-border);border-radius:var(--r-md);overflow:hidden;background:var(--surface);transition:border-color .3s;}
+.co-c:hover{border-color:var(--tertiary);}
+.co-img{height:210px;overflow:hidden;background:var(--surface-2);}
+.co-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease;}
+.co-c:hover .co-img img{transform:scale(1.04);}
+.co-body{padding:var(--s-sm);}
+.co-body h4{font-size:24px;line-height:31px;font-weight:300;color:var(--on-surface);margin-bottom:var(--s-xs);}
+.co-body p{font-size:15px;line-height:23px;color:var(--muted);}
+/* e-learning */
+.el-lay{display:grid;grid-template-columns:1fr 1fr;gap:var(--s-lg);align-items:center;}
+.el-feat{display:grid;grid-template-columns:40px 1fr;gap:var(--s-sm);padding:var(--s-sm) 0;border-top:1px solid var(--line);}
+.el-feat:last-of-type{border-bottom:1px solid var(--line);margin-bottom:var(--s-md);}
+.el-ic{font-size:14px;line-height:26px;color:var(--primary-hi);}
+.el-tx strong{display:block;font-size:18px;line-height:26px;font-weight:400;color:var(--on-surface);margin-bottom:2px;}
+.el-tx p{font-size:15px;line-height:23px;color:var(--muted);}
+.el-img img{width:100%;height:520px;object-fit:cover;}
+/* calendar */
+.cal-g{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s-sm);}
+.cal-c{border:1px solid var(--card-border);border-radius:var(--r-md);overflow:hidden;background:var(--surface);}
+.cal-h{padding:var(--s-sm);border-bottom:1px solid var(--line);}
+.cal-h .idx{margin-bottom:var(--s-xs);}
+.cal-h h4{font-size:clamp(26px,3.2vw,34px);line-height:1.2;font-weight:300;color:var(--on-surface);}
+.cal-h small{display:block;font-size:14px;line-height:21px;color:var(--muted);margin-top:4px;}
+.cal-t1{border-top:2px solid var(--primary);}
+.cal-t2{border-top:2px solid var(--secondary-hi);}
+.cal-t3{border-top:2px solid var(--primary-hi);}
+.cal-body{padding:4px var(--s-sm) var(--s-xs);}
+.cal-row{display:flex;justify-content:space-between;gap:var(--s-sm);align-items:baseline;padding:12px 0;border-bottom:1px solid var(--line);font-size:15px;line-height:22px;}
+.cal-row:last-child{border:none;}
+.cal-row span{color:var(--muted);}
+.cal-row strong{color:var(--on-surface);font-weight:400;text-align:right;}
+.note{display:flex;gap:var(--s-sm);align-items:baseline;border:1px solid var(--card-border);border-left:2px solid var(--primary);padding:var(--s-sm);margin-top:var(--s-md);}
+.note .k{font-size:14px;line-height:21px;color:var(--primary-hi);flex-shrink:0;}
+.note p{font-size:16px;line-height:25px;color:var(--muted);}
+.note p strong{color:var(--on-surface);}
+/* downloads */
+.dl-g{display:grid;grid-template-columns:1fr 1fr;column-gap:var(--s-md);border-top:1px solid var(--line);}
+.dl-item{display:flex;align-items:center;gap:var(--s-sm);padding:var(--s-sm) 0;border-bottom:1px solid var(--line);cursor:pointer;transition:color .2s;}
+.dl-ic{font-size:12px;line-height:18px;color:var(--faint);border:1px solid var(--card-border);padding:4px 8px;flex-shrink:0;}
+.dl-info strong{display:block;font-size:18px;line-height:26px;font-weight:300;color:var(--on-surface);transition:color .2s;}
+.dl-info span{font-size:14px;line-height:21px;color:var(--muted);}
+.dl-arr{margin-left:auto;flex-shrink:0;width:44px;height:44px;border:1px solid var(--card-border);display:flex;align-items:center;justify-content:center;color:var(--on-surface);transition:all .2s;}
+.dl-arr .arr{transform:rotate(90deg);}
+.dl-item:hover .dl-info strong{color:var(--primary-hi);}
+.dl-item:hover .dl-arr{background:var(--primary);border-color:var(--primary);color:var(--on-primary);}
+/* portals */
+.port-g{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s-sm);}
+.port-c{border:1px solid var(--card-border);border-top:2px solid var(--primary);border-radius:var(--r-md);overflow:hidden;background:var(--surface);display:flex;flex-direction:column;transition:border-color .3s;}
+.port-c:hover{border-color:var(--tertiary);border-top-color:var(--primary-hi);}
+.port-h{padding:var(--s-md) var(--s-md) var(--s-sm);}
+.port-h h3{font-size:clamp(26px,3.2vw,34px);line-height:1.2;font-weight:300;color:var(--on-surface);margin-bottom:var(--s-xs);}
+.port-h p{font-size:15px;line-height:23px;color:var(--muted);}
+.port-body{padding:0 var(--s-md) var(--s-md);display:flex;flex-direction:column;flex:1;}
+.port-feats{margin-bottom:var(--s-md);}
+.port-body .btn{margin-top:auto;}
+@media(max-width:960px){
+  .subj-g{grid-template-columns:repeat(2,1fr);}
+  .co-g,.cal-g{grid-template-columns:1fr;}
+  .el-lay{grid-template-columns:1fr;gap:var(--s-md);}
+  .el-img img{height:300px;}
+  .dl-g,.port-g{grid-template-columns:1fr;}
+  .port-h{padding:var(--s-sm) var(--s-sm) var(--s-xs);}
+  .port-body{padding:0 var(--s-sm) var(--s-sm);}
+  .note{flex-direction:column;gap:var(--s-xs);}
+}
+</style>
+</head>
+<body>
+<div id="siteNav"></div>
+
+<div class="page-hero">
+  <div class="ph-bg" style="background-image:url('../images/event-parade.jpg');"></div>
+  <div class="ph-ov"></div>
+  <div class="ph-inner">
+    <div class="breadcrumb"><a href="../index.html">Home</a><span>/</span><span class="here">Academics</span></div>
+    <h1 class="ha1">Academic <em>Excellence</em></h1>
+    <p class="ha2">A rigorous, well-rounded curriculum designed to challenge, inspire, and prepare every student for success at the highest level.</p>
+  </div>
+</div>
+
+<!-- OUR CURRICULUM -->
+<section class="sec" id="curriculum">
+<div class="sec-inner">
+  <div class="s-head" style="margin-bottom:var(--s-md);">
+    <span class="s-lbl rv">Our Curriculum</span>
+    <h2 class="s-title rv">What We <em>Teach</em></h2>
+    <p class="s-sub rv">We follow the Nigerian National Curriculum (NERDC) enriched with character development, critical thinking, and 21st-century skills at every level.</p>
+  </div>
+  <div class="ctabs rv" id="ctabs">
+    <button class="ctab active" onclick="showCurric('nursery',this)">Nursery &amp; KG</button>
+    <button class="ctab" onclick="showCurric('primary',this)">Primary 1–6</button>
+    <button class="ctab" onclick="showCurric('jss',this)">JSS 1–3</button>
+    <button class="ctab" onclick="showCurric('sss',this)">SSS 1–3</button>
+  </div>
+  <div id="c-nursery">
+    <p class="c-intro">Our early years programme follows a play-based, child-centred approach that builds foundational skills in literacy, numeracy, and social development through fun and structured activities.</p>
+    <div class="subj-g">
+      <div class="subj-c"><span>Phonics &amp; Literacy</span></div>
+      <div class="subj-c"><span>Early Numeracy</span></div>
+      <div class="subj-c"><span>Arts &amp; Crafts</span></div>
+      <div class="subj-c"><span>Music &amp; Rhymes</span></div>
+      <div class="subj-c"><span>Social Studies</span></div>
+      <div class="subj-c"><span>Physical Education</span></div>
+      <div class="subj-c"><span>Creative Play</span></div>
+      <div class="subj-c"><span>Moral &amp; Civic</span></div>
+    </div>
+  </div>
+  <div id="c-primary" style="display:none;">
+    <p class="c-intro">Primary school builds strong academic foundations through core NERDC subjects, supplemented by our character and leadership development programme.</p>
+    <div class="subj-g">
+      <div class="subj-c"><span>English Language</span></div>
+      <div class="subj-c"><span>Mathematics</span></div>
+      <div class="subj-c"><span>Basic Science</span></div>
+      <div class="subj-c"><span>Social Studies</span></div>
+      <div class="subj-c"><span>Yoruba Language</span></div>
+      <div class="subj-c"><span>Creative Arts</span></div>
+      <div class="subj-c"><span>Computer Studies</span></div>
+      <div class="subj-c"><span>Civic Education</span></div>
+    </div>
+  </div>
+  <div id="c-jss" style="display:none;">
+    <p class="c-intro">Junior Secondary School prepares students for the Basic Education Certificate Examination (BECE) and lays a rigorous foundation for the senior school.</p>
+    <div class="subj-g">
+      <div class="subj-c"><span>English Language</span></div>
+      <div class="subj-c"><span>Mathematics</span></div>
+      <div class="subj-c"><span>Basic Science</span></div>
+      <div class="subj-c"><span>Social Studies</span></div>
+      <div class="subj-c"><span>Civic Education</span></div>
+      <div class="subj-c"><span>Yoruba Language</span></div>
+      <div class="subj-c"><span>Technical Drawing</span></div>
+      <div class="subj-c"><span>Computer Studies</span></div>
+      <div class="subj-c"><span>Home Economics</span></div>
+      <div class="subj-c"><span>Agricultural Science</span></div>
+      <div class="subj-c"><span>Fine Arts</span></div>
+      <div class="subj-c"><span>Religious Studies</span></div>
+    </div>
+  </div>
+  <div id="c-sss" style="display:none;">
+    <p class="c-intro">Senior Secondary School prepares students for WAEC, NECO, and UTME. We offer Science, Arts, and Commercial streams with a tailored combination of subjects.</p>
+    <div class="subj-g">
+      <div class="subj-c"><span>English Language</span></div>
+      <div class="subj-c"><span>Mathematics</span></div>
+      <div class="subj-c"><span>Chemistry</span></div>
+      <div class="subj-c"><span>Physics</span></div>
+      <div class="subj-c"><span>Biology</span></div>
+      <div class="subj-c"><span>Economics</span></div>
+      <div class="subj-c"><span>Literature in English</span></div>
+      <div class="subj-c"><span>Commerce</span></div>
+      <div class="subj-c"><span>Accounts</span></div>
+      <div class="subj-c"><span>Geography</span></div>
+      <div class="subj-c"><span>Government</span></div>
+      <div class="subj-c"><span>Data Processing</span></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- CO-CURRICULAR -->
+<section class="sec sec-alt" id="cocurricular">
+<div class="sec-inner">
+  <div class="s-head">
+    <span class="s-lbl rv">Beyond the Classroom</span>
+    <h2 class="s-title rv">Co-Curricular <em>Activities</em></h2>
+    <p class="s-sub rv">We believe education extends far beyond the classroom. Our co-curricular programme develops leadership, creativity, teamwork, and physical fitness.</p>
+  </div>
+  <div class="co-g stag">
+    <div class="co-c"><div class="co-img"><img src="../images/students-backpacks.jpg" alt="Sports"></div><div class="co-body"><span class="idx">01</span><h4>Sports &amp; Athletics</h4><p>Football, athletics, basketball, volleyball, table tennis, and annual inter-house sports competitions. Physical fitness and teamwork are central to our school culture.</p></div></div>
+    <div class="co-c"><div class="co-img"><img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&q=80" alt="Debate"></div><div class="co-body"><span class="idx">02</span><h4>Debate &amp; Public Speaking</h4><p>Our debate and oratory club trains students to articulate ideas, argue persuasively, and speak with confidence. Regular inter-school competitions keep standards high.</p></div></div>
+    <div class="co-c"><div class="co-img"><img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=600&q=80" alt="Cultural"></div><div class="co-body"><span class="idx">03</span><h4>Cultural &amp; Drama</h4><p>Yoruba cultural club, drama troupe, dance, and music — students express creativity and preserve cultural heritage through performance and the arts.</p></div></div>
+    <div class="co-c"><div class="co-img"><img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=600&q=80" alt="Science Club"></div><div class="co-body"><span class="idx">04</span><h4>Science &amp; Tech Club</h4><p>Robotics, coding basics, science experiments, and state science competitions. We cultivate curiosity, problem-solving, and STEM passion.</p></div></div>
+    <div class="co-c"><div class="co-img"><img src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=600&q=80" alt="Leadership"></div><div class="co-body"><span class="idx">05</span><h4>Student Government</h4><p>Elected student council, prefect body, and house captain system develop leadership, governance, and responsibility in senior students.</p></div></div>
+    <div class="co-c"><div class="co-img"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Community"></div><div class="co-body"><span class="idx">06</span><h4>Community Service</h4><p>Regular community outreach, environmental care programmes, and charity drives teach empathy, citizenship, and the importance of giving back.</p></div></div>
+  </div>
+</div></section>
+
+<!-- E-LEARNING -->
+<section class="sec" id="elearning">
+<div class="sec-inner">
+  <div class="el-lay">
+    <div class="rv-l">
+      <span class="s-lbl">Digital Learning</span>
+      <h2 class="s-title">Learn Anytime, <em>Anywhere</em></h2>
+      <p class="lead" style="margin-bottom:var(--s-md);">Our E-Learning platform — launched in 2023 — gives every Al-Lateef student access to video lessons, past questions, reading materials, and assignments online, 24/7.</p>
+      <div class="el-feat"><div class="el-ic">01</div><div class="el-tx"><strong>Video Lessons</strong><p>Pre-recorded lessons by our teachers for all subjects and classes, available to rewatch anytime</p></div></div>
+      <div class="el-feat"><div class="el-ic">02</div><div class="el-tx"><strong>Online Assignments &amp; Tests</strong><p>Teachers set, receive, and grade assignments digitally. Students get instant feedback</p></div></div>
+      <div class="el-feat"><div class="el-ic">03</div><div class="el-tx"><strong>Digital Library</strong><p>Thousands of e-books, past WAEC/NECO questions, and study materials at your fingertips</p></div></div>
+      <div class="el-feat"><div class="el-ic">04</div><div class="el-tx"><strong>Progress Tracking</strong><p>Students and parents can track academic performance and learning milestones in real time</p></div></div>
+      <button class="btn btn-primary" onclick="openModal('student')">Access E-Learning Platform <span class="arr">→</span></button>
+    </div>
+    <div class="rv-r">
+      <div class="ihov el-img">
+        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80" alt="E-learning">
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<!-- SCHOOL CALENDAR -->
+<section class="sec sec-alt" id="calendar">
+<div class="sec-inner">
+  <div class="s-head">
+    <span class="s-lbl rv">Academic Year 2025/2026</span>
+    <h2 class="s-title rv">School <em>Calendar</em></h2>
+  </div>
+  <div class="cal-g stag">
+    <div class="cal-c cal-t1">
+      <div class="cal-h"><span class="idx">01</span><h4>First Term</h4><small>Sep – Dec 2025</small></div>
+      <div class="cal-body">
+        <div class="cal-row"><span>Term Opens</span><strong>15 Sep 2025</strong></div>
+        <div class="cal-row"><span>Mid-Term Break</span><strong>20–24 Oct 2025</strong></div>
+        <div class="cal-row"><span>PTA Forum</span><strong>27 Oct 2025</strong></div>
+        <div class="cal-row"><span>End of Term Exams</span><strong>8–19 Dec 2025</strong></div>
+        <div class="cal-row"><span>Term Closes</span><strong>20 Dec 2025</strong></div>
+      </div>
+    </div>
+    <div class="cal-c cal-t2">
+      <div class="cal-h"><span class="idx">02</span><h4>Second Term</h4><small>Jan – Apr 2026</small></div>
+      <div class="cal-body">
+        <div class="cal-row"><span>Term Opens</span><strong>12 Jan 2026</strong></div>
+        <div class="cal-row"><span>Mid-Term Break</span><strong>23–27 Feb 2026</strong></div>
+        <div class="cal-row"><span>PTA Forum</span><strong>2 Mar 2026</strong></div>
+        <div class="cal-row"><span>End of Term Exams</span><strong>30 Mar – 10 Apr 2026</strong></div>
+        <div class="cal-row"><span>Term Closes</span><strong>11 Apr 2026</strong></div>
+      </div>
+    </div>
+    <div class="cal-c cal-t3">
+      <div class="cal-h"><span class="idx">03</span><h4>Third Term</h4><small>May – Jul 2026</small></div>
+      <div class="cal-body">
+        <div class="cal-row"><span>Term Opens</span><strong>4 May 2026</strong></div>
+        <div class="cal-row"><span>Inter-House Sports</span><strong>6 Jun 2026</strong></div>
+        <div class="cal-row"><span>WAEC/NECO Period</span><strong>May – Jun 2026</strong></div>
+        <div class="cal-row"><span>Closing Exams</span><strong>6–17 Jul 2026</strong></div>
+        <div class="cal-row"><span>Graduation Ceremony</span><strong>25 Jul 2026</strong></div>
+      </div>
+    </div>
+  </div>
+  <div class="note rv">
+    <span class="k">Important</span>
+    <p>The 2025/2026 session opens on <strong>July 15, 2025</strong> for resumption. All students must have completed fee payment before the first day of each term.</p>
+  </div>
+</div></section>
+
+<!-- DOWNLOADS -->
+<section class="sec" id="downloads">
+<div class="sec-inner">
+  <div class="s-head">
+    <span class="s-lbl rv">Resources</span>
+    <h2 class="s-title rv">Downloads &amp; <em>Resources</em></h2>
+    <p class="s-sub rv">Download official school documents, forms, and learning materials below.</p>
+  </div>
+  <div class="dl-g stag">
+    <div class="dl-item" onclick="alert('Downloading: 2025/2026 School Calendar PDF')"><div class="dl-ic">PDF</div><div class="dl-info"><strong>2025/2026 Academic Calendar</strong><span>PDF · Updated June 2025</span></div><span class="dl-arr"><span class="arr">⬇</span></span></div>
+    <div class="dl-item" onclick="alert('Downloading: School Fee Structure 2025/2026')"><div class="dl-ic">PDF</div><div class="dl-info"><strong>School Fee Structure 2025/2026</strong><span>PDF · All levels included</span></div><span class="dl-arr"><span class="arr">⬇</span></span></div>
+    <div class="dl-item" onclick="alert('Downloading: Admission Application Form')"><div class="dl-ic">PDF</div><div class="dl-info"><strong>Admission Application Form</strong><span>PDF · Printable form</span></div><span class="dl-arr"><span class="arr">⬇</span></span></div>
+    <div class="dl-item" onclick="alert('Downloading: School Rules and Regulations')"><div class="dl-ic">PDF</div><div class="dl-info"><strong>School Rules &amp; Regulations</strong><span>PDF · Student handbook</span></div><span class="dl-arr"><span class="arr">⬇</span></span></div>
+    <div class="dl-item" onclick="alert('Downloading: Uniform Guidelines 2025')"><div class="dl-ic">PDF</div><div class="dl-info"><strong>Uniform Guidelines 2025</strong><span>PDF · Photos &amp; specifications</span></div><span class="dl-arr"><span class="arr">⬇</span></span></div>
+    <div class="dl-item" onclick="alert('Downloading: Booklist 2025/2026')"><div class="dl-ic">PDF</div><div class="dl-info"><strong>Booklist 2025/2026</strong><span>PDF · All classes</span></div><span class="dl-arr"><span class="arr">⬇</span></span></div>
+    <div class="dl-item" onclick="alert('Downloading: Model College Prospectus')"><div class="dl-ic">PDF</div><div class="dl-info"><strong>Model College Prospectus</strong><span>PDF · Full school overview</span></div><span class="dl-arr"><span class="arr">⬇</span></span></div>
+    <div class="dl-item" onclick="alert('Downloading: Nursery & Primary Prospectus')"><div class="dl-ic">PDF</div><div class="dl-info"><strong>Nursery &amp; Primary Prospectus</strong><span>PDF · Full school overview</span></div><span class="dl-arr"><span class="arr">⬇</span></span></div>
+  </div>
+</div></section>
+
+<!-- SCHOOL PORTAL -->
+<section class="sec sec-alt" id="portals">
+<div class="sec-inner">
+  <div class="s-head">
+    <span class="s-lbl rv">School Portal</span>
+    <h2 class="s-title rv">Access Your <em>Portal</em></h2>
+    <p class="s-sub rv">Dedicated secure portals for every member of the Al-Lateef community — students, teachers, parents, and management.</p>
+  </div>
+  <div class="port-g stag">
+    <div class="port-c">
+      <div class="port-h"><span class="idx">01</span><h3>Student Portal</h3><p>Results, timetables, assignments, and learning resources all in one place.</p></div>
+      <div class="port-body"><ul class="port-feats"><li>View exam results &amp; report cards</li><li>Download class timetables</li><li>Submit &amp; receive assignments</li><li>Access e-library &amp; study materials</li><li>Check fee payment history</li></ul><button class="btn btn-primary btn-block" onclick="openModal('student')">Login as Student <span class="arr">→</span></button></div>
+    </div>
+    <div class="port-c">
+      <div class="port-h"><span class="idx">02</span><h3>Teacher Portal</h3><p>Manage classes, record grades, mark attendance, and communicate with parents.</p></div>
+      <div class="port-body"><ul class="port-feats"><li>Enter &amp; manage student scores</li><li>Take and record daily attendance</li><li>Upload lesson notes &amp; slides</li><li>Communicate with parents</li><li>Access payslips &amp; HR info</li></ul><button class="btn btn-primary btn-block" onclick="openModal('teacher')">Login as Staff <span class="arr">→</span></button></div>
+    </div>
+    <div class="port-c">
+      <div class="port-h"><span class="idx">03</span><h3>Parent Portal</h3><p>Stay connected to your child's education — track progress, pay fees, and message teachers.</p></div>
+      <div class="port-body"><ul class="port-feats"><li>Track child's academic progress</li><li>Pay school fees securely online</li><li>View &amp; download report cards</li><li>Monitor attendance records</li><li>Message class teachers directly</li></ul><button class="btn btn-primary btn-block" onclick="openModal('parent')">Login as Parent <span class="arr">→</span></button></div>
+    </div>
+    <div class="port-c">
+      <div class="port-h"><span class="idx">04</span><h3>Management Portal</h3><p>Full oversight of school operations — analytics, finances, staff, and admissions.</p></div>
+      <div class="port-body"><ul class="port-feats"><li>School-wide analytics dashboard</li><li>Financial reports &amp; fee tracking</li><li>Staff management &amp; payroll</li><li>Manage admissions &amp; enrolments</li><li>Send school-wide announcements</li></ul><button class="btn btn-primary btn-block" onclick="openModal('mgmt')">Management Login <span class="arr">→</span></button></div>
+    </div>
+  </div>
+</div></section>
+
+<div id="siteFooter"></div>
+<div id="mRoot"></div>
+<script src="../shared.js"></script>
+<script>
+window._pg='academics';
+function showCurric(id,btn){
+  ['nursery','primary','jss','sss'].forEach(function(k){document.getElementById('c-'+k).style.display='none';});
+  document.getElementById('c-'+id).style.display='block';
+  document.querySelectorAll('.ctab').forEach(function(b){b.classList.remove('active');});
+  btn.classList.add('active');
+}
+</script>
+</body></html>

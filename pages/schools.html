@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Our Schools | Al-Lateef Group of Schools</title>
+<link rel="stylesheet" href="../shared.css">
+<style>
+.school-wrap{display:grid;grid-template-columns:1fr 1fr;gap:var(--s-lg);align-items:center;}
+.school-wrap.rev>:first-child{order:2;}
+.school-img img{width:100%;height:460px;object-fit:cover;}
+.sstats{display:grid;border-top:1px solid var(--card-border);margin-top:var(--s-sm);}
+.sstats.c2{grid-template-columns:1fr 1fr;}
+.sstats.c3{grid-template-columns:repeat(3,1fr);}
+.sstats>div{padding:var(--s-sm) var(--s-sm) 0;border-left:1px solid var(--line);}
+.sstats>div:first-child{border-left:none;padding-left:0;}
+.sstats .n{display:block;font-size:clamp(26px,3.2vw,34px);line-height:1.2;font-weight:300;color:var(--on-surface);margin-bottom:var(--s-xs);}
+.sstats .l{font-size:14px;line-height:21px;color:var(--muted);}
+.s-id{display:flex;align-items:center;gap:var(--s-sm);margin-bottom:var(--s-sm);}
+.crest{width:64px;height:64px;border-radius:var(--r-full);background:#fff;padding:4px;flex-shrink:0;}
+.crest img{width:100%;height:100%;object-fit:contain;}
+.cls-b{display:flex;flex-wrap:wrap;gap:6px;margin:var(--s-sm) 0 var(--s-md);}
+.feat-l{margin-bottom:var(--s-md);}
+/* facilities */
+.fac-g{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s-sm);}
+.fac-c{border:1px solid var(--card-border);border-radius:var(--r-md);overflow:hidden;background:var(--surface);transition:border-color .3s;}
+.fac-c:hover{border-color:var(--tertiary);}
+.fac-img{height:220px;overflow:hidden;background:var(--surface-2);}
+.fac-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease;}
+.fac-c:hover .fac-img img{transform:scale(1.04);}
+.fac-body{padding:var(--s-sm);}
+.fac-body .idx{margin-bottom:var(--s-xs);}
+.fac-body h4{font-size:24px;line-height:31px;font-weight:300;color:var(--on-surface);margin-bottom:var(--s-xs);}
+.fac-body p{font-size:15px;line-height:23px;color:var(--muted);}
+/* gallery */
+.gal-g{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:240px 240px;gap:12px;}
+.gal-g>div{border-radius:var(--r-md);overflow:hidden;}
+.gal-g>div img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease;}
+.gal-g>div:hover img{transform:scale(1.04);}
+.gal-g>div:nth-child(1),.gal-g>div:nth-child(4),.gal-g>div:nth-child(5){grid-column:span 2;}
+.cta-btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:var(--s-md);}
+@media(max-width:960px){
+  .school-wrap{grid-template-columns:1fr;gap:var(--s-md);}
+  .school-wrap.rev>:first-child{order:0;}
+  .school-img img{height:280px;}
+  .fac-g{grid-template-columns:1fr;}
+  .gal-g{grid-template-columns:1fr 1fr;grid-template-rows:auto;}
+  .gal-g>div{height:180px;}
+  .gal-g>div:nth-child(1),.gal-g>div:nth-child(4),.gal-g>div:nth-child(5){grid-column:span 2;}
+}
+</style>
+</head>
+<body>
+<div id="siteNav"></div>
+
+<div class="page-hero">
+  <div class="ph-bg" style="background-image:url('../images/building-new-block.jpg');"></div>
+  <div class="ph-ov"></div>
+  <div class="ph-inner">
+    <div class="breadcrumb"><a href="../index.html">Home</a><span>/</span><span class="here">Our Schools</span></div>
+    <h1 class="ha1">Our <em>Schools</em></h1>
+    <p class="ha2">Two institutions. One group. A shared commitment to excellence, character, and the lifelong success of every student.</p>
+  </div>
+</div>
+
+<!-- NURSERY & PRIMARY -->
+<section class="sec" id="nursery">
+<div class="sec-inner"><div class="school-wrap">
+  <div class="rv-l">
+    <div class="school-img ihov"><img src="../images/building-classrooms.jpg" alt="Nursery &amp; Primary"></div>
+    <div class="sstats c2">
+      <div><span class="n" data-count="600" data-suffix="+">0</span><span class="l">Students</span></div>
+      <div><span class="n" data-count="28" data-suffix="+">0</span><span class="l">Teachers</span></div>
+    </div>
+  </div>
+  <div class="rv-r">
+    <div class="s-id">
+      <div class="crest"><img src="../images/logo-nur-primary.png" alt="Al-Lateef Nur/Primary School crest"></div>
+      <span class="s-lbl" style="margin:0;">Nursery &amp; Primary School</span>
+    </div>
+    <h2 class="s-title">Al-Lateef Nursery <em>&amp; Primary</em></h2>
+    <p class="lead">Our Nursery &amp; Primary School provides a warm, stimulating, and safe environment where children aged 2½ to 12 build the intellectual, social, and moral foundations that will carry them through life.</p>
+    <div class="cls-b"><span class="chip">Nursery 1</span><span class="chip">Nursery 2</span><span class="chip">Kindergarten</span><span class="chip">Primary 1</span><span class="chip">Primary 2</span><span class="chip">Primary 3</span><span class="chip">Primary 4</span><span class="chip">Primary 5</span><span class="chip">Primary 6</span></div>
+    <ul class="feat-l"><li>Qualified, caring teachers with early childhood expertise</li><li>NERDC curriculum enriched with character training</li><li>Dedicated computer lab, library, and science room</li><li>Regular sports, arts, music, and drama activities</li><li>Safe, gated campus with 24-hour security</li></ul>
+    <a href="admissions.html#apply" class="btn btn-primary">Apply for Admission <span class="arr">→</span></a>
+  </div>
+</div></div></section>
+
+<!-- MODEL COLLEGE -->
+<section class="sec sec-alt" id="college">
+<div class="sec-inner"><div class="school-wrap rev">
+  <div class="rv-r">
+    <div class="school-img ihov"><img src="../images/gate-model-college.jpg" alt="Model College"></div>
+    <div class="sstats c3">
+      <div><span class="n" data-count="600" data-suffix="+">0</span><span class="l">Students</span></div>
+      <div><span class="n" data-count="98" data-suffix="%">0</span><span class="l">WAEC Pass</span></div>
+      <div><span class="n" data-count="35" data-suffix="+">0</span><span class="l">Teachers</span></div>
+    </div>
+  </div>
+  <div class="rv-l">
+    <div class="s-id">
+      <div class="crest"><img src="../images/logo-model-college.png" alt="Al-Lateef Model College crest"></div>
+      <span class="s-lbl" style="margin:0;">Secondary School</span>
+    </div>
+    <h2 class="s-title">Al-Lateef <em>Model College</em></h2>
+    <p class="lead">Established in 2013, Al-Lateef Model College has built a reputation for transformational secondary education in Ogun State. We go beyond exams — our graduates are known for their confidence, leadership, and character.</p>
+    <div class="cls-b"><span class="chip">JSS 1</span><span class="chip">JSS 2</span><span class="chip">JSS 3</span><span class="chip">SSS 1 Science</span><span class="chip">SSS 1 Arts</span><span class="chip">SSS 1 Commerce</span><span class="chip">SSS 2</span><span class="chip">SSS 3</span></div>
+    <ul class="feat-l"><li>Three streams: Science, Arts &amp; Commercial</li><li>Consistent 98%+ WAEC &amp; NECO pass rates</li><li>Science labs, ICT lab &amp; well-stocked library</li><li>JAMB preparation &amp; post-UTME coaching</li><li>Active student government &amp; leadership programme</li></ul>
+    <a href="admissions.html#apply" class="btn btn-primary">Apply for Admission <span class="arr">→</span></a>
+  </div>
+</div></div></section>
+
+<!-- FACILITIES -->
+<section class="sec" id="facilities">
+<div class="sec-inner">
+  <div class="s-head">
+    <span class="s-lbl rv">Campus Facilities</span>
+    <h2 class="s-title rv">World-Class <em>Facilities</em></h2>
+    <p class="s-sub rv">Our campus is equipped with modern facilities designed to support every dimension of learning — academic, physical, creative, and digital.</p>
+  </div>
+  <div class="fac-g stag">
+    <div class="fac-c"><div class="fac-img"><img src="https://images.unsplash.com/photo-1532094349884-543559c17e85?w=600&q=80" alt="Science Lab"></div><div class="fac-body"><span class="idx">01</span><h4>Science Laboratories</h4><p>Fully equipped Physics, Chemistry, and Biology labs for hands-on experiments and practical WAEC preparation.</p></div></div>
+    <div class="fac-c"><div class="fac-img"><img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&q=80" alt="Computer Lab"></div><div class="fac-body"><span class="idx">02</span><h4>ICT Computer Suite</h4><p>30-station computer lab with broadband internet for computer studies, e-learning, and digital literacy training.</p></div></div>
+    <div class="fac-c"><div class="fac-img"><img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=600&q=80" alt="Library"></div><div class="fac-body"><span class="idx">03</span><h4>Library &amp; Resource Centre</h4><p>A 3,000-volume library with fiction, reference, and academic texts. Quiet study zones for all ages.</p></div></div>
+    <div class="fac-c"><div class="fac-img"><img src="../images/students-backpacks.jpg" alt="Sports"></div><div class="fac-body"><span class="idx">04</span><h4>Sports &amp; Recreation</h4><p>Football pitch, basketball court, athletics track, and a multipurpose hall for sports, assemblies, and events.</p></div></div>
+    <div class="fac-c"><div class="fac-img"><img src="../images/students-backpacks.jpg" alt="Classrooms"></div><div class="fac-body"><span class="idx">05</span><h4>Modern Classrooms</h4><p>Bright, well-ventilated classrooms with whiteboards, visual aids, and comfortable furniture for all class sizes.</p></div></div>
+    <div class="fac-c"><div class="fac-img"><img src="https://images.unsplash.com/photo-1567521464027-f127ff144326?w=600&q=80" alt="Cafeteria"></div><div class="fac-body"><span class="idx">06</span><h4>Cafeteria &amp; Canteen</h4><p>A hygienic school canteen serving fresh, nutritious meals daily. All food handlers are certified and regularly inspected.</p></div></div>
+  </div>
+</div></section>
+
+<!-- GALLERY -->
+<section class="sec sec-alt" id="gallery">
+<div class="sec-inner">
+  <div class="s-head">
+    <span class="s-lbl rv">Photo Gallery</span>
+    <h2 class="s-title rv">Life at <em>Al-Lateef</em></h2>
+  </div>
+  <div class="gal-g rv-s">
+    <div><img src="../images/event-parade.jpg" alt="Students"></div>
+    <div><img src="../images/building-classrooms.jpg" alt="Learning"></div>
+    <div><img src="../images/building-new-block.jpg" alt="Campus"></div>
+    <div><img src="../images/event-parade.jpg" alt="Sports"></div>
+    <div><img src="../images/students-group-1.jpg" alt="Graduation"></div>
+  </div>
+</div></section>
+
+<section class="sec sec-band">
+<div class="sec-inner rv">
+  <span class="s-lbl">Admissions 2025/2026</span>
+  <h2 class="s-title" style="max-width:720px;">Ready to Join the <em>Al-Lateef Family?</em></h2>
+  <p class="s-sub" style="color:var(--tertiary);">Applications for 2025/2026 are open now. Spaces are limited — secure your child's place today.</p>
+  <div class="cta-btns">
+    <a href="admissions.html#apply" class="btn btn-primary">Apply for Admission <span class="arr">→</span></a>
+    <a href="contact.html" class="btn btn-secondary">Contact Admissions Office <span class="arr">→</span></a>
+  </div>
+</div></section>
+
+<div id="siteFooter"></div>
+<div id="mRoot"></div>
+<script src="../shared.js"></script>
+<script>window._pg='schools';</script>
+</body></html>

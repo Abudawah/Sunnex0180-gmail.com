@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>About Us | Al-Lateef Group of Schools</title>
+<link rel="stylesheet" href="../shared.css">
+<style>
+.hist-lay{display:grid;grid-template-columns:1fr 1fr;gap:var(--s-lg);align-items:center;}
+.hist-img img{width:100%;height:440px;object-fit:cover;}
+.trio{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--card-border);margin-top:var(--s-sm);}
+.trio>div{padding:var(--s-sm) var(--s-sm) 0;border-left:1px solid var(--line);}
+.trio>div:first-child{border-left:none;padding-left:0;}
+.trio span{display:block;font-size:clamp(26px,3.2vw,34px);line-height:1.2;font-weight:300;color:var(--on-surface);margin-bottom:var(--s-xs);}
+.trio small{font-size:14px;line-height:21px;color:var(--muted);}
+/* vision / mission / values */
+.vmg{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s-sm);}
+.vmc{border-radius:var(--r-md);padding:var(--s-md);border:1px solid transparent;}
+.vmc.vi{background:var(--secondary);}
+.vmc.mi{background:var(--primary);color:var(--on-primary);}
+.vmc.va{background:var(--surface);border-color:var(--card-border);}
+.vmc .idx{margin-bottom:var(--s-md);}
+.vmc.mi .idx{color:var(--on-primary);opacity:.7;}
+.vmc h3{font-size:clamp(26px,3.2vw,34px);line-height:1.2;font-weight:300;margin-bottom:var(--s-sm);}
+.vmc p{font-size:16px;line-height:26px;}
+.vmc.vi p{color:var(--tertiary);}
+.vmc.mi p{color:rgba(10,26,15,.85);}
+/* welcome */
+.wel-lay{display:grid;grid-template-columns:340px 1fr;gap:var(--s-lg);align-items:start;}
+.wel-ph img{width:100%;border-radius:var(--r-md);}
+.wel-tag{display:flex;align-items:center;gap:12px;font-size:14px;line-height:21px;color:var(--muted);margin-top:var(--s-sm);}
+.wel-tag::before{content:'';width:28px;height:1px;background:var(--primary-hi);flex-shrink:0;}
+blockquote{font-size:clamp(22px,2.6vw,28px);line-height:1.4;font-weight:300;color:var(--on-surface);border-left:2px solid var(--primary);padding-left:var(--s-sm);margin-bottom:var(--s-md);}
+.wel-tx p{font-size:16px;line-height:26px;color:var(--muted);margin-bottom:var(--s-sm);}
+.sig{font-size:24px;line-height:31px;font-weight:300;color:var(--on-surface);margin-top:var(--s-md);padding-top:var(--s-sm);border-top:1px solid var(--line);}
+.sig-t{font-size:14px;line-height:21px;color:var(--muted);margin-top:4px;}
+/* heads */
+.hds-g{display:grid;grid-template-columns:1fr 1fr;gap:var(--s-sm);}
+.hdc{border:1px solid var(--card-border);border-radius:var(--r-md);overflow:hidden;display:flex;background:var(--surface);transition:border-color .3s;}
+.hdc:hover{border-color:var(--tertiary);}
+.hd-img{width:200px;flex-shrink:0;overflow:hidden;}
+.hd-img img{width:100%;height:100%;object-fit:cover;}
+.hd-body{padding:var(--s-md) var(--s-sm) var(--s-md) var(--s-md);}
+.hd-body .chip{margin-bottom:var(--s-sm);}
+.hd-body h3{font-size:28px;line-height:35px;font-weight:300;color:var(--on-surface);margin-bottom:var(--s-xs);}
+.hd-ttl{font-size:14px;line-height:21px;color:var(--primary-hi);margin-bottom:var(--s-sm);}
+.hd-body p{font-size:15px;line-height:23px;color:var(--muted);}
+/* milestones band */
+.mil-wrap{display:grid;grid-template-columns:1fr 1.3fr;gap:var(--s-lg);align-items:start;}
+.mil-wrap .s-head{position:sticky;top:120px;}
+.sec-band .timeline::before{background:rgba(212,241,224,.28);}
+.sec-band .tl-item::before{background:var(--secondary);}
+.sec-band .tl-item:hover::before,.sec-band .tl-item.now::before{background:var(--primary-hi);}
+.sec-band .tl-item p{color:var(--tertiary);}
+.tl-item.now h4{color:var(--primary-hi);}
+@media(max-width:960px){
+  .hist-lay,.wel-lay,.mil-wrap{grid-template-columns:1fr;gap:var(--s-md);}
+  .mil-wrap .s-head{position:static;}
+  .vmg,.hds-g{grid-template-columns:1fr;}
+  .hdc{flex-direction:column;}
+  .hd-img{width:100%;height:240px;}
+  .hd-body,.vmc{padding:var(--s-sm);}
+  .hist-img img{height:280px;}
+}
+</style>
+</head>
+<body>
+<div id="siteNav"></div>
+
+<div class="page-hero">
+  <div class="ph-bg" style="background-image:url('../images/gate-model-college.jpg');"></div>
+  <div class="ph-ov"></div>
+  <div class="ph-inner">
+    <div class="breadcrumb"><a href="../index.html">Home</a><span>/</span><span class="here">About Us</span></div>
+    <h1 class="ha1">About <em>Al-Lateef</em></h1>
+    <p class="ha2">15 years of building futures, nurturing character, and delivering academic excellence in Ifo, Ogun State.</p>
+  </div>
+</div>
+
+<!-- HISTORY -->
+<section class="sec" id="history">
+<div class="sec-inner">
+  <div class="hist-lay">
+    <div class="rv-l">
+      <div class="ihov hist-img"><img src="../images/building-new-block.jpg" alt="School building"></div>
+      <div class="trio">
+        <div><span data-count="15" data-suffix=" Yrs">0</span><small>Experience</small></div>
+        <div><span data-count="5000" data-suffix="+">0</span><small>Alumni</small></div>
+        <div><span>2</span><small>Schools</small></div>
+      </div>
+    </div>
+    <div class="rv-r prose">
+      <span class="s-lbl">Our History</span>
+      <h2 class="s-title">Born from a <em>Bold Vision</em></h2>
+      <p>On <strong>May 5, 2010</strong>, Al-Lateef Group of Schools opened its gates in Ifo, Ogun State with 80 pioneering students and a team of 12 dedicated staff. Founded with one powerful goal: to give every child in Ifo access to a world-class education built on discipline, strong values, and academic rigour.</p>
+      <p>The name "Al-Lateef" — meaning "The Gentle" and "The Kind" — reflects the care and depth with which we approach every child's development. From a single building with three classrooms, we have grown into a full educational group serving over 1,200 students.</p>
+      <p>Our 5,000+ alumni are found in universities, professions, and leadership roles across Nigeria and beyond — proof of what 15 years of purposeful education produces.</p>
+    </div>
+  </div>
+</div></section>
+
+<!-- VISION MISSION VALUES -->
+<section class="sec sec-alt" id="vision">
+<div class="sec-inner">
+  <div class="s-head">
+    <span class="s-lbl rv">Our Purpose</span>
+    <h2 class="s-title rv">Vision, Mission &amp; <em>Core Values</em></h2>
+  </div>
+  <div class="vmg stag">
+    <div class="vmc vi"><span class="idx">01</span><h3>Our Vision</h3><p>To be the leading centre of academic excellence in Ogun State — producing well-rounded graduates who are intellectually sharp, morally upright, and equipped to lead in every sphere of life.</p></div>
+    <div class="vmc mi"><span class="idx">02</span><h3>Our Mission</h3><p>To provide a stimulating and safe learning environment where every student is challenged to achieve their best academically, nurtured to grow in character, and prepared to contribute meaningfully to society.</p></div>
+    <div class="vmc va"><span class="idx">03</span><h3>Core Values</h3><ul class="vlist"><li>Excellence in all endeavours</li><li>Discipline &amp; self-responsibility</li><li>Integrity and honesty</li><li>Respect for every person</li><li>Compassion &amp; service to others</li><li>Courage and perseverance</li><li>Innovation &amp; intellectual curiosity</li></ul></div>
+  </div>
+</div></section>
+
+<!-- PROPRIETORS WELCOME -->
+<section class="sec" id="welcome">
+<div class="sec-inner">
+  <div class="s-head">
+    <span class="s-lbl rv">Proprietor's Welcome Address</span>
+    <h2 class="s-title rv">A Word of <em>Welcome</em></h2>
+  </div>
+  <div class="wel-lay">
+    <div class="wel-ph rv-l">
+      <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&q=80" alt="Proprietor">
+      <div class="wel-tag">Alhaji S.A. Al-Lateef · Founder &amp; Proprietor</div>
+    </div>
+    <div class="wel-tx rv-r">
+      <blockquote>"Education is the greatest investment a family can make. At Al-Lateef, we have dedicated fifteen years to ensuring that investment yields exceptional returns — not just in grades, but in character, confidence, and purpose."</blockquote>
+      <p>Welcome to Al-Lateef Group of Schools. When I founded this institution on May 5, 2010, I carried a simple but powerful belief: that every child in Ifo, and in Nigeria, deserves an education that truly prepares them for life — not just for examinations.</p>
+      <p>Over the past fifteen years, I have watched hundreds of children walk through our gates as curious young learners and leave as confident, principled, and capable young adults. I have seen our alumni go on to study Medicine, Law, Engineering, and Business at top Nigerian universities and abroad.</p>
+      <p>As we mark our 15th anniversary, I invite every parent, student, and member of our community to renew their commitment to the values and vision that have carried us this far. The best of Al-Lateef is still ahead of us. Welcome to our family.</p>
+      <div class="sig">Alhaji S.A. Al-Lateef</div>
+      <div class="sig-t">Founder &amp; Proprietor, Al-Lateef Group of Schools · Est. May 5, 2010</div>
+    </div>
+  </div>
+</div></section>
+
+<!-- HEAD OF SCHOOLS -->
+<section class="sec sec-alt" id="heads">
+<div class="sec-inner">
+  <div class="s-head">
+    <span class="s-lbl rv">School Leadership</span>
+    <h2 class="s-title rv">Our Head of <em>Schools</em></h2>
+    <p class="s-sub rv">Our schools are led by experienced, passionate educators committed to the best for every student.</p>
+  </div>
+  <div class="hds-g">
+    <div class="hdc rv-l">
+      <div class="hd-img"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80" alt="Head Teacher"></div>
+      <div class="hd-body">
+        <span class="chip chip-gold">Nursery &amp; Primary</span>
+        <h3>Mrs. Ramota Adesanya</h3>
+        <div class="hd-ttl">Head Teacher · B.Ed Early Childhood, UNILAG · 18 yrs experience</div>
+        <p>Mrs. Adesanya brings warmth, expertise, and extraordinary passion for early childhood development. Under her leadership, the Nursery &amp; Primary has grown from 80 to over 600 students while maintaining its caring, family atmosphere.</p>
+      </div>
+    </div>
+    <div class="hdc rv-r">
+      <div class="hd-img"><img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80" alt="Principal"></div>
+      <div class="hd-body">
+        <span class="chip chip-gold">Model College</span>
+        <h3>Mr. Tunde Olayinka</h3>
+        <div class="hd-ttl">Principal · B.Sc Mathematics, OAU · M.Ed, UNILAG · 22 yrs experience</div>
+        <p>Mr. Olayinka is a seasoned educator with a track record of academic transformation. Since joining Al-Lateef, he has driven the WAEC pass rate to 98% and cultivated a culture of excellence and intellectual ambition.</p>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<!-- MILESTONES -->
+<section class="sec sec-band" id="milestones">
+<div class="sec-inner">
+  <div class="mil-wrap">
+    <div class="s-head">
+      <span class="s-lbl rv">15 Years of Growth</span>
+      <h2 class="s-title rv">Our <em>Milestones</em></h2>
+      <p class="s-sub rv" style="color:var(--tertiary);">From 80 students in 3 classrooms to 1,200 students across two schools — a journey of purpose, perseverance, and pride.</p>
+    </div>
+    <div class="timeline stag">
+      <div class="tl-item"><div class="tl-yr">May 5, 2010</div><h4>School Founded</h4><p>Al-Lateef Nursery &amp; Primary opens in Ifo with 80 pioneering students, 12 staff members, and a mission to transform education in the community.</p></div>
+      <div class="tl-item"><div class="tl-yr">2012</div><h4>First Primary Graduation</h4><p>Our first Primary 6 graduates proceed to secondary schools across Ogun State. The community celebrates with tremendous pride.</p></div>
+      <div class="tl-item"><div class="tl-yr">2013</div><h4>Model College Established</h4><p>Al-Lateef Model College opens, providing a natural progression for our primary graduates. JSS 1 commences with 45 students.</p></div>
+      <div class="tl-item"><div class="tl-yr">2015</div><h4>New Campus Facilities</h4><p>New classroom blocks, staff room, and a multipurpose hall commissioned. Enrolment crosses 400 students for the first time.</p></div>
+      <div class="tl-item"><div class="tl-yr">2016</div><h4>First WAEC — 100% Pass Rate</h4><p>Al-Lateef Model College records a landmark 100% pass rate in its first WAEC examinations. Three students earn distinctions in all nine subjects.</p></div>
+      <div class="tl-item"><div class="tl-yr">2018</div><h4>ICT Lab &amp; Library Opened</h4><p>A 30-station computer laboratory and a 3,000-book library are opened, greatly expanding learning resources for all students.</p></div>
+      <div class="tl-item"><div class="tl-yr">2020</div><h4>10th Anniversary &amp; Science Block</h4><p>The school celebrates 10 years with a new science lab block, home economics room, and arts studio. Enrolment exceeds 900 students.</p></div>
+      <div class="tl-item"><div class="tl-yr">2023</div><h4>E-Learning Platform Launched</h4><p>Al-Lateef launches its digital learning platform — students can now access lessons, assignments, and resources from anywhere, anytime.</p></div>
+      <div class="tl-item now"><div class="tl-yr">May 5, 2025</div><h4>15 Years of Excellence</h4><p>Al-Lateef marks 15 years with 1,200+ students, 5,000+ alumni, 98% WAEC pass rate, and a reputation as one of the finest schools in Ogun State. The best is still ahead.</p></div>
+    </div>
+  </div>
+</div></section>
+
+<div class="sbar"><div class="si stag">
+  <div><span class="sn" data-count="15" data-suffix=" Yrs">0</span><span class="sl">Since May 2010</span></div>
+  <div><span class="sn" data-count="1200" data-suffix="+">0</span><span class="sl">Current Students</span></div>
+  <div><span class="sn" data-count="5000" data-suffix="+">0</span><span class="sl">Alumni</span></div>
+  <div><span class="sn" data-count="60" data-suffix="+">0</span><span class="sl">Staff Members</span></div>
+</div></div>
+
+<div id="siteFooter"></div>
+<div id="mRoot"></div>
+<script src="../shared.js"></script>
+<script>window._pg='about';</script>
+</body></html>

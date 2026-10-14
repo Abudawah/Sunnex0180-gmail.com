@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Contact Us | Al-Lateef Group of Schools</title>
+<link rel="stylesheet" href="../shared.css">
+<style>
+.contact-lay{display:grid;grid-template-columns:1fr 480px;gap:var(--s-lg);align-items:start;}
+.cc{background:var(--secondary);border-radius:var(--r-md);padding:var(--s-md);}
+.cc h3{font-size:clamp(26px,3.2vw,34px);line-height:1.2;font-weight:300;color:var(--on-surface);margin-bottom:var(--s-sm);}
+.cc-item{padding:var(--s-sm) 0;border-top:1px solid rgba(212,241,224,.2);}
+.cc-tx strong{display:block;font-size:14px;line-height:21px;font-weight:400;color:var(--primary-hi);margin-bottom:var(--s-xs);}
+.cc-tx p,.cc-tx a{font-size:16px;line-height:25px;color:var(--on-surface);display:block;}
+.cc-tx a:hover{color:var(--primary-hi);}
+.cc-hours-row{display:flex;justify-content:space-between;gap:var(--s-sm);font-size:15px;line-height:22px;padding:8px 0;border-bottom:1px solid rgba(212,241,224,.14);}
+.cc-hours-row:last-child{border:none;}
+.cc-hours-row span:first-child{color:var(--tertiary);}
+.cc-hours-row span:last-child{color:var(--on-surface);text-align:right;}
+.cc-map{border:1px solid rgba(212,241,224,.3);height:160px;display:flex;align-items:center;justify-content:center;margin-top:var(--s-sm);cursor:pointer;transition:border-color .2s,background .2s;
+  background-image:linear-gradient(rgba(212,241,224,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(212,241,224,.06) 1px,transparent 1px);background-size:24px 24px;}
+.cc-map:hover{border-color:var(--primary-hi);}
+.cc-map p{text-align:center;color:var(--on-surface);font-size:16px;line-height:24px;}
+.cc-map small{display:block;font-size:14px;color:var(--tertiary);}
+.cc-soc{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:var(--s-sm);}
+.cc-soc a{border:1px solid rgba(212,241,224,.3);padding:12px 6px;text-align:center;color:var(--on-surface);font-size:13px;line-height:20px;transition:all .2s;display:block;}
+.cc-soc a:hover{border-color:var(--primary-hi);color:var(--primary-hi);}
+.quick-links{border:1px solid var(--card-border);border-radius:var(--r-md);padding:var(--s-md);margin-top:var(--s-sm);}
+.quick-links h4{font-size:14px;line-height:21px;font-weight:400;color:var(--primary-hi);margin-bottom:var(--s-xs);}
+.ql-grid a{display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--line);font-size:18px;line-height:26px;font-weight:300;color:var(--on-surface);transition:color .2s;}
+.ql-grid a:last-child{border:none;padding-bottom:0;}
+.ql-grid a:hover{color:var(--primary-hi);}
+/* departments */
+.dept-g{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line);}
+.dept-c{padding:var(--s-md);border-right:1px solid var(--line);border-bottom:1px solid var(--line);transition:background .3s;}
+.dept-c:hover{background:rgba(212,241,224,.03);}
+.dept-c h4{font-size:24px;line-height:31px;font-weight:300;color:var(--on-surface);margin-bottom:var(--s-xs);}
+.dept-c p{font-size:15px;line-height:23px;color:var(--muted);margin-bottom:var(--s-sm);}
+.dept-c a{font-size:15px;line-height:22px;color:var(--on-surface);text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--tertiary);word-break:break-word;}
+.dept-c a:hover{color:var(--primary-hi);text-decoration-color:var(--primary-hi);}
+.sbar .sn{font-size:clamp(22px,2.6vw,30px);}
+@media(max-width:960px){
+  .contact-lay{grid-template-columns:1fr;gap:var(--s-md);}
+  .dept-g{grid-template-columns:1fr;}
+  .dept-c,.cc,.quick-links{padding:var(--s-sm);}
+  .cc-soc{grid-template-columns:1fr 1fr;}
+}
+</style>
+</head>
+<body>
+<div id="siteNav"></div>
+
+<div class="page-hero">
+  <div class="ph-bg" style="background-image:url('../images/event-parade.jpg');"></div>
+  <div class="ph-ov"></div>
+  <div class="ph-inner">
+    <div class="breadcrumb"><a href="../index.html">Home</a><span>/</span><span class="here">Contact Us</span></div>
+    <h1 class="ha1">Get in <em>Touch</em></h1>
+    <p class="ha2">We'd love to hear from you. Our admissions and admin team are always ready to assist you.</p>
+  </div>
+</div>
+
+<!-- MAIN CONTACT SECTION -->
+<section class="sec">
+<div class="sec-inner">
+  <div class="contact-lay">
+    <!-- LEFT: FORM -->
+    <div class="rv-l">
+      <span class="s-lbl">Send a Message</span>
+      <h2 class="s-title">How Can We <em>Help You?</em></h2>
+      <p class="lead" style="margin-bottom:var(--s-md);">Have a question about admissions, school fees, our programmes, or anything else? Fill in the form and our team will respond within 24 hours.</p>
+      <div class="fcard">
+        <h3>Contact Form</h3>
+        <p>All fields marked * are required.</p>
+        <div class="f2">
+          <div class="fg"><label>First Name *</label><input type="text" id="cfF" placeholder="First name"></div>
+          <div class="fg"><label>Last Name *</label><input type="text" id="cfL" placeholder="Last name"></div>
+        </div>
+        <div class="f2">
+          <div class="fg"><label>Email *</label><input type="email" id="cfE" placeholder="email@example.com"></div>
+          <div class="fg"><label>Phone *</label><input type="tel" id="cfP" placeholder="+234 ..."></div>
+        </div>
+        <div class="fg"><label>Subject *</label>
+          <select id="cfS">
+            <option value="">— Select subject —</option>
+            <option>General Enquiry</option>
+            <option>Admission Enquiry</option>
+            <option>School Fees / Payment</option>
+            <option>Academic Query</option>
+            <option>Portal / Technical Support</option>
+            <option>Complaint or Feedback</option>
+            <option>Employment / Vacancy</option>
+            <option>Partnership / Business</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="fg"><label>How did you hear about us?</label>
+          <select>
+            <option value="">— Select —</option>
+            <option>Word of mouth / Friend</option>
+            <option>Google Search</option>
+            <option>Social Media</option>
+            <option>I am a current/former parent</option>
+            <option>Roadside banner / sign</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="fg"><label>Your Message *</label>
+          <textarea id="cfM" placeholder="Please write your message or question here. The more detail you provide, the better we can help you..."></textarea>
+        </div>
+        <button class="sbtn" onclick="submitContact()">Send Message</button>
+        <p class="form-note">We respond within 24 hours on weekdays.</p>
+      </div>
+    </div>
+
+    <!-- RIGHT: CONTACT DETAILS -->
+    <div class="rv-r">
+      <div class="cc">
+        <h3>Contact Information</h3>
+        <div class="cc-item">
+          <div class="cc-tx"><strong>Address</strong><p>Al-Lateef Group of Schools<br>Ifo, Ogun State, Nigeria</p></div>
+        </div>
+        <div class="cc-item">
+          <div class="cc-tx"><strong>Phone Numbers</strong><a href="tel:+2348000000000">+234 800 000 0000</a><a href="tel:+2348010000000">+234 801 000 0000</a></div>
+        </div>
+        <div class="cc-item">
+          <div class="cc-tx"><strong>Email Addresses</strong><a href="mailto:info@al-lateef.edu.ng">info@al-lateef.edu.ng</a><a href="mailto:admissions@al-lateef.edu.ng">admissions@al-lateef.edu.ng</a></div>
+        </div>
+        <div class="cc-item">
+          <div class="cc-tx">
+            <strong>Office Hours</strong>
+            <div class="cc-hours">
+              <div class="cc-hours-row"><span>Monday – Friday</span><span>8:00am – 4:00pm</span></div>
+              <div class="cc-hours-row"><span>Saturday</span><span>9:00am – 12:00pm</span></div>
+              <div class="cc-hours-row"><span>Sunday / Public Holidays</span><span>Closed</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="cc-map" onclick="alert('Google Maps integration available when the site is hosted live.\nSchool is located in Ifo, Ogun State, Nigeria.')">
+          <p>Click to view on Google Maps<small>Ifo, Ogun State, Nigeria</small></p>
+        </div>
+        <div class="cc-soc">
+          <a href="#">Facebook</a>
+          <a href="#">Instagram</a>
+          <a href="#">𝕏 Twitter</a>
+          <a href="#">WhatsApp</a>
+        </div>
+      </div>
+      <div class="quick-links">
+        <h4>Quick Links</h4>
+        <div class="ql-grid">
+          <a href="admissions.html#apply">Apply Online <span class="arr">→</span></a>
+          <a href="fees.html">Pay Fees <span class="arr">→</span></a>
+          <a href="admissions.html#prospectus">Get Prospectus <span class="arr">→</span></a>
+          <a href="portals.html">Portal Login <span class="arr">→</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<!-- DEPARTMENT CONTACTS -->
+<section class="sec sec-alt">
+<div class="sec-inner">
+  <div class="s-head">
+    <span class="s-lbl rv">Department Contacts</span>
+    <h2 class="s-title rv">Contact the Right <em>Department</em></h2>
+    <p class="s-sub rv">Each department has a dedicated email address to ensure your enquiry reaches the right person quickly.</p>
+  </div>
+  <div class="dept-g stag">
+    <div class="dept-c">
+      <span class="idx">01</span>
+      <h4>Admissions Office</h4>
+      <p>New student applications, entrance exams, and enrolment enquiries</p>
+      <a href="mailto:admissions@al-lateef.edu.ng">admissions@al-lateef.edu.ng</a>
+    </div>
+    <div class="dept-c">
+      <span class="idx">02</span>
+      <h4>Bursar's Office</h4>
+      <p>School fees, payments, receipts, and all financial queries</p>
+      <a href="mailto:fees@al-lateef.edu.ng">fees@al-lateef.edu.ng</a>
+    </div>
+    <div class="dept-c">
+      <span class="idx">03</span>
+      <h4>Academic Office</h4>
+      <p>Results, timetables, report cards, and academic matters</p>
+      <a href="mailto:academic@al-lateef.edu.ng">academic@al-lateef.edu.ng</a>
+    </div>
+    <div class="dept-c">
+      <span class="idx">04</span>
+      <h4>IT / Portal Support</h4>
+      <p>Portal login issues, password resets, e-learning access</p>
+      <a href="mailto:portal@al-lateef.edu.ng">portal@al-lateef.edu.ng</a>
+    </div>
+    <div class="dept-c">
+      <span class="idx">05</span>
+      <h4>HR / Recruitment</h4>
+      <p>Job applications, staff matters, and current vacancies</p>
+      <a href="mailto:hr@al-lateef.edu.ng">hr@al-lateef.edu.ng</a>
+    </div>
+    <div class="dept-c">
+      <span class="idx">06</span>
+      <h4>Proprietor's Office</h4>
+      <p>Partnerships, leadership matters, and media enquiries</p>
+      <a href="mailto:info@al-lateef.edu.ng">info@al-lateef.edu.ng</a>
+    </div>
+  </div>
+</div></section>
+
+<!-- STATS -->
+<div class="sbar"><div class="si stag">
+  <div><span class="sn">+234 800 000 0000</span><span class="sl">Main Helpline</span></div>
+  <div><span class="sn">24 hrs</span><span class="sl">Response Time</span></div>
+  <div><span class="sn">Mon–Fri</span><span class="sl">8am – 4pm</span></div>
+  <div><span class="sn">Ifo, Ogun</span><span class="sl">State, Nigeria</span></div>
+</div></div>
+
+<div id="siteFooter"></div>
+<div id="mRoot"></div>
+<script src="../shared.js"></script>
+<script>
+window._pg='contact';
+function submitContact(){
+  var f=document.getElementById('cfF').value;
+  var e=document.getElementById('cfE').value;
+  var s=document.getElementById('cfS').value;
+  var m=document.getElementById('cfM').value;
+  if(!f||!e||!s||!m){alert('Please fill in all required fields.');return;}
+  if(!e.includes('@')){alert('Please enter a valid email address.');return;}
+  alert('Thank you for your message!\n\nWe have received your enquiry and will respond within 24 hours.\nFor urgent matters, please call: +234 800 000 0000');
+  document.getElementById('cfF').value='';
+  document.getElementById('cfL').value='';
+  document.getElementById('cfE').value='';
+  document.getElementById('cfP').value='';
+  document.getElementById('cfM').value='';
+  document.getElementById('cfS').value='';
+}
+</script>
+</body></html>

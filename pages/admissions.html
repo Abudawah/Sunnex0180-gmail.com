@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Admissions | Al-Lateef Group of Schools</title>
+<link rel="stylesheet" href="../shared.css">
+<style>
+/* why */
+.why-g{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line);}
+.why-c{padding:var(--s-md);border-right:1px solid var(--line);border-bottom:1px solid var(--line);transition:background .3s;}
+.why-c:hover{background:rgba(212,241,224,.03);}
+.wc-num{font-size:47px;line-height:54px;font-weight:300;color:var(--primary-hi);margin-bottom:var(--s-md);}
+.why-c h4{font-size:24px;line-height:31px;font-weight:300;color:var(--on-surface);margin-bottom:var(--s-xs);}
+.why-c p{font-size:15px;line-height:23px;color:var(--muted);}
+/* process */
+.proc-g{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--card-border);}
+.ps{padding:var(--s-sm) var(--s-sm) 0 0;position:relative;}
+.ps::before{content:'';position:absolute;top:-6px;left:0;width:11px;height:11px;background:var(--surface);border:1px solid var(--primary-hi);transition:background .3s;}
+.ps:hover::before{background:var(--primary-hi);}
+.ps-circle{font-size:14px;line-height:21px;color:var(--primary-hi);margin:var(--s-sm) 0 var(--s-xs);}
+.ps h4{font-size:24px;line-height:31px;font-weight:300;color:var(--on-surface);margin-bottom:var(--s-xs);}
+.ps p{font-size:15px;line-height:23px;color:var(--muted);}
+.req-g{display:grid;grid-template-columns:1fr 1fr;gap:var(--s-sm);margin-top:var(--s-lg);}
+.req-c{border:1px solid var(--card-border);border-radius:var(--r-md);padding:var(--s-md);}
+.req-c h3{font-size:clamp(26px,3.2vw,34px);line-height:1.2;font-weight:300;color:var(--on-surface);margin-bottom:var(--s-sm);}
+/* apply */
+.apply-lay{display:grid;grid-template-columns:1fr 540px;gap:var(--s-lg);align-items:start;}
+.apply-lay .irow{grid-template-columns:170px 1fr;}
+/* prospectus */
+.pros-lay{display:grid;grid-template-columns:1fr 1fr;gap:var(--s-lg);align-items:end;}
+.pros-form .fg input{border-color:rgba(212,241,224,.35);background:rgba(212,241,224,.04);}
+.pros-form .fg input::placeholder{color:rgba(255,255,255,.55);}
+/* faq */
+.faq-lay{display:grid;grid-template-columns:1fr 1.6fr;gap:var(--s-lg);align-items:start;}
+@media(max-width:960px){
+  .why-g{grid-template-columns:1fr;}
+  .why-c{padding:var(--s-sm);}
+  .proc-g{grid-template-columns:1fr;border-top:none;border-left:1px solid var(--card-border);}
+  .ps{padding:0 0 var(--s-md) var(--s-sm);}
+  .ps::before{top:4px;left:-6px;}
+  .ps-circle{margin-top:0;}
+  .req-g,.apply-lay,.pros-lay,.faq-lay{grid-template-columns:1fr;gap:var(--s-md);}
+  .req-c{padding:var(--s-sm);}
+  .apply-lay .irow{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+<div id="siteNav"></div>
+
+<div class="page-hero">
+  <div class="ph-bg" style="background-image:url('../images/building-classrooms.jpg');"></div>
+  <div class="ph-ov"></div>
+  <div class="ph-inner">
+    <div class="breadcrumb"><a href="../index.html">Home</a><span>/</span><span class="here">Admissions</span></div>
+    <h1 class="ha1">Admissions <em>2025/2026</em></h1>
+    <p class="ha2">Applications are currently open for all levels — from Nursery 1 to SSS 3. Join the Al-Lateef family today.</p>
+  </div>
+</div>
+
+<!-- WHY CHOOSE -->
+<section class="sec" id="why">
+<div class="sec-inner">
+  <div class="s-head">
+    <span class="s-lbl rv">Why Al-Lateef</span>
+    <h2 class="s-title rv">6 Reasons to Choose <em>Al-Lateef</em></h2>
+  </div>
+  <div class="why-g stag">
+    <div class="why-c"><div class="wc-num">01</div><h4>Proven Academic Results</h4><p>Consistent 98%+ WAEC &amp; NECO pass rates. Our students regularly gain admission into top universities across Nigeria and abroad.</p></div>
+    <div class="why-c"><div class="wc-num">02</div><h4>Character-First Education</h4><p>Beyond textbooks, we shape responsible, disciplined, and morally upright individuals ready for life's challenges.</p></div>
+    <div class="why-c"><div class="wc-num">03</div><h4>Experienced Teachers</h4><p>All our teachers are degree-qualified, experienced, and genuinely passionate about student development and growth.</p></div>
+    <div class="why-c"><div class="wc-num">04</div><h4>Modern Facilities</h4><p>Science labs, computer suites, a well-stocked library, sports fields, and an e-learning platform support holistic learning.</p></div>
+    <div class="why-c"><div class="wc-num">05</div><h4>Safe &amp; Nurturing</h4><p>A secure, structured school environment where every child is known, valued, and encouraged to give their best every day.</p></div>
+    <div class="why-c"><div class="wc-num">06</div><h4>Strong Alumni Network</h4><p>Join a thriving community of 5,000+ alumni who actively support students through mentorship, scholarships, and networks.</p></div>
+  </div>
+</div></section>
+
+<!-- ADMISSION PROCESS -->
+<section class="sec sec-alt" id="process">
+<div class="sec-inner">
+  <div class="s-head">
+    <span class="s-lbl rv">How to Apply</span>
+    <h2 class="s-title rv">The Admission <em>Process</em></h2>
+    <p class="s-sub rv">Our admission process is straightforward, fair, and transparent. Here is how to get started:</p>
+  </div>
+  <div class="proc-g stag">
+    <div class="ps"><div class="ps-circle">01</div><h4>Step 1</h4><p>Download or collect the application form from our admissions office or website</p></div>
+    <div class="ps"><div class="ps-circle">02</div><h4>Step 2</h4><p>Complete and submit the form with all required documents and application fee</p></div>
+    <div class="ps"><div class="ps-circle">03</div><h4>Step 3</h4><p>Attend the entrance examination (Maths, English &amp; General Paper)</p></div>
+    <div class="ps"><div class="ps-circle">04</div><h4>Step 4</h4><p>Receive your admission offer letter within 5 working days of the exam</p></div>
+    <div class="ps"><div class="ps-circle">05</div><h4>Step 5</h4><p>Accept offer, pay school fees, collect uniform, and begin your journey!</p></div>
+  </div>
+  <div class="req-g">
+    <div class="req-c rv-l">
+      <h3>Required Documents</h3>
+      <ul class="req-list">
+        <li>Completed application form (fully signed)</li>
+        <li>Recent passport photograph (2 copies)</li>
+        <li>Birth certificate or age declaration</li>
+        <li>Last school report card (2 copies)</li>
+        <li>School leaving certificate (if applicable)</li>
+        <li>Parent/Guardian valid ID</li>
+        <li>Immunisation card (for Nursery intake)</li>
+        <li>Application fee receipt</li>
+      </ul>
+    </div>
+    <div class="req-c rv-r">
+      <h3>Application Fees</h3>
+      <ul class="req-list">
+        <li>Nursery &amp; Kindergarten — ₦2,000</li>
+        <li>Primary 1–6 — ₦3,000</li>
+        <li>JSS 1–3 — ₦4,000</li>
+        <li>SSS 1–3 — ₦5,000</li>
+        <li>Entrance exam included in fee</li>
+        <li>Prospectus request — ₦1,500</li>
+        <li>All fees payable at school or online</li>
+        <li>Non-refundable after application</li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+<!-- APPLY ONLINE -->
+<section class="sec" id="apply">
+<div class="sec-inner">
+  <div class="apply-lay">
+    <div class="rv-l">
+      <span class="s-lbl">Apply Online</span>
+      <h2 class="s-title">Start Your Application <em>Now</em></h2>
+      <p class="lead" style="margin-bottom:var(--s-md);">Ready to join the Al-Lateef family? Complete our online application form and our admissions team will contact you within 24 hours to guide you through the next steps.</p>
+      <div class="irow"><span class="k">Admissions Helpline</span><span class="v">+234 800 000 0000 <small>Mon–Fri, 8am–4pm</small></span></div>
+      <div class="irow"><span class="k">Email Admissions</span><span class="v">admissions@al-lateef.edu.ng</span></div>
+      <div class="irow"><span class="k">Visit Us</span><span class="v">Al-Lateef Group of Schools, Ifo, Ogun State</span></div>
+    </div>
+    <div class="rv-r">
+      <div class="fcard">
+        <h3>Online Application Form</h3>
+        <p>Complete all fields accurately. Fields marked * are required.</p>
+        <div class="f2"><div class="fg"><label>First Name *</label><input type="text" placeholder="First name"></div><div class="fg"><label>Last Name *</label><input type="text" placeholder="Last name"></div></div>
+        <div class="fg"><label>Date of Birth *</label><input type="date"></div>
+        <div class="fg"><label>School Applying To *</label><select><option value="">Select school</option><option>Al-Lateef Nursery &amp; Primary</option><option>Al-Lateef Model College</option></select></div>
+        <div class="fg"><label>Class Applying For *</label><select><option value="">Select class</option><option>Nursery 1</option><option>Nursery 2</option><option>Kindergarten</option><option>Primary 1</option><option>Primary 2</option><option>Primary 3</option><option>Primary 4</option><option>Primary 5</option><option>Primary 6</option><option>JSS 1</option><option>JSS 2</option><option>JSS 3</option><option>SSS 1</option><option>SSS 2</option><option>SSS 3</option></select></div>
+        <div class="f2"><div class="fg"><label>Parent Name *</label><input type="text" placeholder="Full name"></div><div class="fg"><label>Relationship</label><select><option>Father</option><option>Mother</option><option>Guardian</option></select></div></div>
+        <div class="fg"><label>Phone Number *</label><input type="tel" placeholder="+234 ..."></div>
+        <div class="fg"><label>Email Address *</label><input type="email" placeholder="email@example.com"></div>
+        <div class="fg"><label>Previous School</label><input type="text" placeholder="Name of previous school"></div>
+        <div class="fg"><label>Additional Notes</label><textarea placeholder="Any special needs, medical conditions, or information we should know..."></textarea></div>
+        <button class="sbtn" onclick="alert('Application submitted successfully!\n\nOur admissions team will contact you within 24 hours.\nFor urgent enquiries: +234 800 000 0000')">Submit Application</button>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<!-- PROSPECTUS -->
+<section class="sec sec-band" id="prospectus">
+<div class="sec-inner">
+  <div class="pros-lay">
+    <div class="rv">
+      <span class="s-lbl">School Prospectus</span>
+      <h2 class="s-title">Request Our <em>School Prospectus</em></h2>
+      <p class="s-sub" style="color:var(--tertiary);">Our comprehensive prospectus covers curriculum, facilities, fee structure, staff, and everything you need to make an informed decision for your child's education.</p>
+    </div>
+    <div class="pros-form rv">
+      <div class="fg"><input type="text" placeholder="Your Full Name" aria-label="Your Full Name"></div>
+      <div class="fg"><input type="email" placeholder="Email Address" aria-label="Email Address"></div>
+      <div class="fg"><input type="tel" placeholder="Phone Number" aria-label="Phone Number"></div>
+      <button class="btn btn-primary btn-block" onclick="alert('Thank you! Your prospectus request has been received.\nWe will email it to you within 2 working days.\nYou may also call: +234 800 000 0000')">Request Prospectus <span class="arr">→</span></button>
+    </div>
+  </div>
+</div></section>
+
+<!-- FAQ -->
+<section class="sec" id="faq">
+<div class="sec-inner">
+  <div class="faq-lay">
+    <div class="rv">
+      <span class="s-lbl">Frequently Asked Questions</span>
+      <h2 class="s-title">Got Questions? We Have <em>Answers</em></h2>
+    </div>
+    <div>
+      <div class="faq-item rv"><div class="faq-q"><h4>What age is required to start Nursery 1?</h4><div class="faq-tog">+</div></div><div class="faq-ans">Children must be at least 2 years 6 months old at the start of the academic session to enrol in Nursery 1. We also accept children who turn 3 years within the first term of the session.</div></div>
+      <div class="faq-item rv"><div class="faq-q"><h4>When does the academic session begin and end?</h4><div class="faq-tog">+</div></div><div class="faq-ans">The 2025/2026 session begins on July 15, 2025 and ends in June 2026. The school year is divided into three terms, each approximately 13 weeks long. Exact term dates are published in the school calendar.</div></div>
+      <div class="faq-item rv"><div class="faq-q"><h4>Is there an entrance examination for all classes?</h4><div class="faq-tog">+</div></div><div class="faq-ans">Yes. All applicants from Kindergarten upwards sit an entrance examination covering English Language, Mathematics, and General Knowledge. The exam is designed to be fair and age-appropriate. Nursery admissions are based on age requirements and an informal assessment.</div></div>
+      <div class="faq-item rv"><div class="faq-q"><h4>What are the school fees for 2025/2026?</h4><div class="faq-tog">+</div></div><div class="faq-ans">Nursery &amp; Primary tuition starts from ₦45,000 per term, and Model College from ₦65,000 per term. Fees cover tuition and use of facilities. A detailed fee breakdown is available on the Pay Fees page or in the prospectus. Additional charges may apply for uniforms, textbooks, and extra-curricular activities.</div></div>
+      <div class="faq-item rv"><div class="faq-q"><h4>Do you offer scholarships or bursaries?</h4><div class="faq-tog">+</div></div><div class="faq-ans">Yes. Al-Lateef awards merit-based scholarships to outstanding students in JSS 1 and SSS 1 entry classes. We also have a bursary fund for students facing genuine financial hardship. Please contact our admissions office for details on eligibility and the application procedure.</div></div>
+      <div class="faq-item rv"><div class="faq-q"><h4>Is transport provided to and from school?</h4><div class="faq-tog">+</div></div><div class="faq-ans">Yes. We partner with a reputable school bus service covering several routes in Ifo and surrounding areas. Please enquire at the admissions office for current routes, schedules, and transport fees.</div></div>
+      <div class="faq-item rv"><div class="faq-q"><h4>Can I transfer my child mid-session?</h4><div class="faq-tog">+</div></div><div class="faq-ans">Mid-session transfers are considered on a case-by-case basis, subject to space availability in the relevant class. Please contact our admissions office with your child's most recent school report and other required documents to begin the assessment process.</div></div>
+    </div>
+  </div>
+</div></section>
+
+<div id="siteFooter"></div>
+<div id="mRoot"></div>
+<script src="../shared.js"></script>
+<script>window._pg='admissions';</script>
+</body></html>

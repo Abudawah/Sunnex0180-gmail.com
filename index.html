@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Al-Lateef Group of Schools | Ifo, Ogun State — Est. May 2010</title>
+<link rel="stylesheet" href="shared.css">
+<style>
+/* HERO */
+.hero{min-height:calc(100vh - 118px);position:relative;display:flex;align-items:flex-end;overflow:hidden;border-bottom:1px solid var(--line);}
+.hbg{position:absolute;inset:0;background:url('images/gate-model-college.jpg') center/cover no-repeat;}
+.hov{position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,26,15,.97) 26%,rgba(10,26,15,.66) 62%,rgba(10,26,15,.4)),linear-gradient(0deg,rgba(10,26,15,1) 0%,rgba(10,26,15,0) 42%);}
+.hcont{position:relative;max-width:var(--container);margin:0 auto;padding:var(--s-xl) 40px 0;width:100%;display:grid;grid-template-columns:1fr 380px;column-gap:var(--s-lg);align-items:end;}
+.hero h1{font-size:clamp(40px,6vw,64px);line-height:1.2;font-weight:300;color:var(--on-surface);margin-bottom:var(--s-sm);}
+.hero h1 em{font-style:normal;color:var(--primary-hi);display:block;}
+.h-sub{font-size:18px;line-height:27px;font-weight:300;color:var(--muted);margin-bottom:var(--s-md);max-width:560px;}
+.hbtns{display:flex;gap:12px;flex-wrap:wrap;}
+.hstats{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,1fr);margin-top:var(--s-lg);border-top:1px solid var(--card-border);}
+.hstats>div{padding:var(--s-md) var(--s-sm);border-left:1px solid var(--line);}
+.hstats>div:first-child{border-left:none;padding-left:0;}
+.hn{display:block;font-size:clamp(28px,3.4vw,40px);line-height:1.15;font-weight:300;color:var(--on-surface);}
+.hl{font-size:14px;line-height:21px;color:var(--muted);margin-top:var(--s-xs);}
+/* hero portal card */
+.hcard{background:rgba(10,26,15,.84);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--card-border);border-radius:var(--r-md);padding:var(--s-sm);}
+.hcard h3{display:flex;align-items:center;gap:12px;font-size:14px;line-height:21px;font-weight:400;color:var(--primary-hi);margin-bottom:var(--s-sm);}
+.hcard h3::before{content:'';width:28px;height:1px;background:currentColor;}
+.pgrid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--card-border);border:1px solid var(--card-border);margin-bottom:12px;}
+.pb{display:flex;flex-direction:column;align-items:flex-start;justify-content:space-between;gap:var(--s-sm);min-height:96px;padding:14px 16px;background:var(--surface);border:none;cursor:pointer;font-family:inherit;font-size:16px;line-height:24px;color:var(--on-surface);text-align:left;transition:background .2s;}
+.pb .n{font-size:12px;line-height:18px;color:var(--faint);transition:color .2s;}
+.pb:hover{background:var(--secondary);}
+.pb:hover .n{color:var(--primary-hi);}
+.plink-hero{display:flex;align-items:center;justify-content:space-between;min-height:81px;padding:14px 20px;background:var(--primary);color:var(--on-primary);transition:background .2s;}
+.plink-hero:hover{background:var(--primary-hi);}
+/* schools grid */
+.scg{display:grid;grid-template-columns:1fr 1fr;gap:var(--s-sm);}
+.scc{border:1px solid var(--card-border);border-radius:var(--r-md);overflow:hidden;background:var(--surface);display:flex;flex-direction:column;transition:border-color .3s;}
+.scc:hover{border-color:var(--tertiary);}
+.sci{height:300px;overflow:hidden;position:relative;}
+.sci img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease;}
+.scc:hover .sci img{transform:scale(1.04);}
+.scl{position:absolute;top:0;left:0;background:var(--surface);color:var(--primary-hi);font-size:12px;line-height:18px;padding:8px 14px;}
+.scb{padding:var(--s-md);display:flex;flex-direction:column;flex:1;}
+.scb h3{font-size:clamp(26px,3.2vw,34px);line-height:1.2;font-weight:300;color:var(--on-surface);margin-bottom:var(--s-sm);}
+.scb p{font-size:16px;line-height:25px;color:var(--muted);margin-bottom:var(--s-sm);}
+.scf{margin-bottom:var(--s-md);}
+.scb .btn-link{margin-top:auto;align-self:flex-start;}
+/* pillars band */
+.plg{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(212,241,224,.22);border-left:1px solid rgba(212,241,224,.22);}
+.plc{padding:var(--s-md);border-right:1px solid rgba(212,241,224,.22);border-bottom:1px solid rgba(212,241,224,.22);transition:background .3s;}
+.plc:hover{background:rgba(212,241,224,.05);}
+.plc h4{font-size:24px;line-height:31px;font-weight:300;color:var(--on-surface);margin-bottom:12px;}
+.plc p{font-size:15px;line-height:23px;color:var(--tertiary);}
+/* about snapshot */
+.as2{display:grid;grid-template-columns:1fr 1fr;gap:var(--s-lg);align-items:center;}
+.mos{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:240px 220px;gap:12px;}
+.mos .big{grid-row:1/3;}
+.mos img{width:100%;height:100%;object-fit:cover;}
+.ms{display:grid;grid-template-columns:72px 1fr;gap:var(--s-sm);padding:14px 0;border-top:1px solid var(--line);}
+.ms:last-of-type{border-bottom:1px solid var(--line);}
+.ms-y{font-size:14px;line-height:22px;color:var(--primary-hi);}
+.ms-t{font-size:15px;line-height:22px;color:var(--muted);}
+.ms-t strong{color:var(--on-surface);}
+/* gallery strip */
+.gstrip{display:grid;grid-template-columns:2fr 1fr 2fr;gap:12px;height:280px;margin-top:var(--s-lg);}
+.gstrip>div{border-radius:var(--r-md);overflow:hidden;}
+.gstrip img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease;}
+.gstrip>div:hover img{transform:scale(1.04);}
+/* events */
+.evg{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s-sm);}
+.evc{border:1px solid var(--card-border);border-radius:var(--r-md);overflow:hidden;background:var(--surface);transition:border-color .3s;}
+.evc:hover{border-color:var(--tertiary);}
+.ev-d{padding:var(--s-sm);display:flex;align-items:baseline;gap:14px;border-bottom:1px solid var(--line);}
+.ev-day{font-size:47px;line-height:54px;font-weight:300;color:var(--primary-hi);}
+.ev-my{font-size:14px;line-height:21px;color:var(--muted);}
+.ev-b{padding:var(--s-sm);}
+.ev-b h4{font-size:20px;line-height:28px;font-weight:400;color:var(--on-surface);margin-bottom:var(--s-xs);}
+.ev-b p{font-size:15px;line-height:23px;color:var(--muted);margin-bottom:var(--s-sm);}
+/* testimonials */
+.tg{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s-sm);}
+.tq{border:1px solid var(--card-border);border-radius:var(--r-md);padding:var(--s-md);display:flex;flex-direction:column;}
+.stars{color:var(--primary-hi);font-size:14px;letter-spacing:3px;margin-bottom:var(--s-sm);}
+.tq p{font-size:18px;line-height:27px;font-weight:300;color:var(--on-surface);margin-bottom:var(--s-md);}
+.ta{display:flex;align-items:center;gap:14px;margin-top:auto;padding-top:var(--s-sm);border-top:1px solid var(--line);}
+.tav{width:44px;height:44px;border-radius:var(--r-full);background:var(--secondary);border:1px solid var(--card-border);display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--primary-hi);flex-shrink:0;}
+.tin strong{display:block;font-size:15px;line-height:22px;font-weight:400;color:var(--on-surface);}
+.tin span{font-size:13px;line-height:20px;color:var(--muted);}
+/* admissions cta */
+.asteps{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid rgba(212,241,224,.22);margin:var(--s-lg) 0;}
+.astp{padding:var(--s-sm) var(--s-sm) 0 0;}
+.asc{display:block;font-size:14px;line-height:21px;color:var(--primary-hi);margin-bottom:var(--s-xs);}
+.asl{font-size:18px;line-height:26px;font-weight:300;color:var(--on-surface);}
+.cta-btns{display:flex;gap:12px;flex-wrap:wrap;}
+/* pay fees mini */
+.fee-in{display:grid;grid-template-columns:1fr 460px;gap:var(--s-lg);align-items:start;}
+.fip{display:grid;grid-template-columns:40px 1fr;gap:var(--s-sm);padding:var(--s-sm) 0;border-top:1px solid var(--line);}
+.fip:last-of-type{border-bottom:1px solid var(--line);}
+.fic{font-size:14px;line-height:24px;color:var(--primary-hi);}
+.fit strong{display:block;font-size:18px;line-height:26px;font-weight:400;color:var(--on-surface);margin-bottom:2px;}
+.fit p{font-size:15px;line-height:23px;color:var(--muted);}
+.amtd{border:1px solid var(--card-border);padding:16px 20px;margin:var(--s-xs) 0 var(--s-sm);display:flex;align-items:center;justify-content:space-between;gap:var(--s-sm);}
+.amtd span{font-size:14px;color:var(--muted);}
+.amtd strong{font-size:34px;line-height:41px;font-weight:300;color:var(--primary-hi);}
+.pilbs{display:flex;align-items:center;gap:6px;margin-top:var(--s-sm);flex-wrap:wrap;}
+.psuc{display:none;}
+.psuc.on{display:block;}
+.sic2{font-size:14px;color:var(--primary-hi);margin-bottom:var(--s-sm);display:flex;align-items:center;gap:12px;}
+.sic2::before{content:'';width:28px;height:1px;background:currentColor;}
+/* portals mini */
+.pcg{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s-sm);}
+.pc{border:1px solid var(--card-border);border-top:2px solid var(--primary);border-radius:var(--r-md);padding:var(--s-sm);cursor:pointer;background:var(--surface);display:flex;flex-direction:column;transition:border-color .3s,background .3s;}
+.pc:hover{background:var(--surface-2);border-color:var(--tertiary);border-top-color:var(--primary-hi);}
+.pc h4{font-size:24px;line-height:31px;font-weight:300;color:var(--on-surface);margin-bottom:var(--s-xs);}
+.pc>p{font-size:14px;line-height:21px;color:var(--muted);margin-bottom:var(--s-sm);}
+.pcfl{margin-bottom:var(--s-sm);}
+.pcfl li{font-size:14px;line-height:20px;padding:8px 0;}
+.pc .btn-link{margin-top:auto;align-self:flex-start;}
+@media(max-width:960px){
+  .hero{min-height:0;}
+  .hcont{grid-template-columns:1fr;padding:var(--s-lg) 20px 0;}
+  .hcard{display:none;}
+  .hstats{grid-template-columns:1fr 1fr;}
+  .hstats>div:nth-child(3){border-left:none;padding-left:0;}
+  .hstats>div:nth-child(n+3){border-top:1px solid var(--line);}
+  .as2,.scg,.fee-in{grid-template-columns:1fr;}
+  .plg,.evg,.tg,.pcg{grid-template-columns:1fr;}
+  .gstrip{grid-template-columns:1fr 1fr;height:auto;}
+  .gstrip>div{height:180px;}
+  .gstrip>div:first-child{grid-column:1/-1;}
+  .asteps{grid-template-columns:1fr;}
+  .astp{padding:14px 0;border-bottom:1px solid rgba(212,241,224,.22);}
+  .sci{height:220px;}
+  .scb,.tq,.plc{padding:var(--s-sm);}
+  .mos{grid-template-rows:180px 160px;}
+}
+@media(max-width:600px){.f2{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<div id="siteNav"></div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hbg"></div><div class="hov"></div>
+  <div class="hcont">
+    <div>
+      <span class="s-lbl ha1">15 Years of Excellence · Est. May 5, 2010</span>
+      <h1 class="ha2">Where Every Child <em>Learns to Excel</em></h1>
+      <p class="h-sub ha3">Al-Lateef Group of Schools has been shaping futures in Ifo, Ogun State since 2010. Two schools united by one vision — academic excellence, discipline, and strong moral values.</p>
+      <div class="hbtns ha4">
+        <a href="pages/admissions.html" class="btn btn-primary">Apply for Admission <span class="arr">→</span></a>
+        <a href="pages/about.html" class="btn btn-secondary">Our 15-Year Story <span class="arr">→</span></a>
+      </div>
+    </div>
+    <div class="hcard ha3">
+      <h3>Quick Portal Access</h3>
+      <div class="pgrid">
+        <button class="pb" onclick="openModal('student')"><span class="n">01</span><span>Student</span></button>
+        <button class="pb" onclick="openModal('teacher')"><span class="n">02</span><span>Teacher</span></button>
+        <button class="pb" onclick="openModal('parent')"><span class="n">03</span><span>Parent</span></button>
+        <button class="pb" onclick="openModal('mgmt')"><span class="n">04</span><span>Management</span></button>
+      </div>
+      <a href="pages/fees.html" class="plink-hero">
+        <span>Pay School Fees Online</span>
+        <span class="arr">→</span>
+      </a>
+    </div>
+    <div class="hstats ha5">
+      <div><span class="hn" data-count="1200" data-suffix="+">0</span><div class="hl">Students</div></div>
+      <div><span class="hn" data-count="60" data-suffix="+">0</span><div class="hl">Qualified Staff</div></div>
+      <div><span class="hn">15 Yrs</span><div class="hl">Of Excellence</div></div>
+      <div><span class="hn" data-count="98" data-suffix="%">0</span><div class="hl">WAEC Pass Rate</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="sbar"><div class="si stag">
+  <div><span class="sn">May 2010</span><span class="sl">Year Founded</span></div>
+  <div><span class="sn">2</span><span class="sl">Schools in One Group</span></div>
+  <div><span class="sn" data-count="5000" data-suffix="+">0</span><span class="sl">Alumni Produced</span></div>
+  <div><span class="sn">Ifo, Ogun</span><span class="sl">State, Nigeria</span></div>
+</div></div>
+
+<!-- OUR SCHOOLS -->
+<section class="sec">
+<div class="sec-inner">
+  <div class="s-head">
+    <span class="s-lbl rv">Our Institutions</span>
+    <h2 class="s-title rv">Two Schools, <em>One Mission</em></h2>
+    <p class="s-sub rv">United by our commitment to excellence and strong values, serving every stage of your child's education.</p>
+  </div>
+  <div class="scg">
+    <div class="scc rv-l">
+      <div class="sci"><img src="images/building-classrooms.jpg" alt="Nursery"><div class="scl">Nursery &amp; Primary</div></div>
+      <div class="scb">
+        <h3>Al-Lateef Nursery &amp; Primary</h3>
+        <p>A warm, nurturing environment where young learners build their foundations in literacy, numeracy, and character from the very start.</p>
+        <ul class="scf"><li>Nursery 1 &amp; 2, Kindergarten, Primary 1–6</li><li>Moral &amp; civic education in every lesson</li><li>Sports, arts &amp; extra-curricular programmes</li></ul>
+        <a href="pages/schools.html#nursery" class="btn-link">Explore School <span class="arr">→</span></a>
+      </div>
+    </div>
+    <div class="scc rv-r">
+      <div class="sci"><img src="images/building-new-block.jpg" alt="College"><div class="scl">Model College</div></div>
+      <div class="scb">
+        <h3>Al-Lateef Model College</h3>
+        <p>A rigorous secondary school preparing students academically, morally, and professionally for higher education and life beyond school.</p>
+        <ul class="scf"><li>JSS 1–3 &amp; SSS 1–3 (Science, Arts, Commerce)</li><li>98% WAEC &amp; NECO pass rate</li><li>Computer lab, science labs &amp; library</li></ul>
+        <a href="pages/schools.html#college" class="btn-link">Explore College <span class="arr">→</span></a>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<!-- WHY US BAND -->
+<section class="sec sec-band">
+<div class="sec-inner">
+  <div class="s-head">
+    <span class="s-lbl rv">Why Al-Lateef</span>
+    <h2 class="s-title rv">Built on Strong <em>Foundations</em></h2>
+    <p class="s-sub rv" style="color:var(--tertiary);">Every decision guided by one belief — every child deserves an education that builds both mind and character.</p>
+  </div>
+  <div class="plg stag">
+    <div class="plc"><span class="idx">01</span><h4>Academic Excellence</h4><p>Rigorous teaching ensures our students consistently excel in national examinations and university placements.</p></div>
+    <div class="plc"><span class="idx">02</span><h4>Discipline &amp; Character</h4><p>We build responsibility, respect, and integrity — values that guide students long after they leave school.</p></div>
+    <div class="plc"><span class="idx">03</span><h4>Strong Moral Values</h4><p>Ethical foundations embedded in daily school life, shaping students of outstanding character and integrity.</p></div>
+    <div class="plc"><span class="idx">04</span><h4>Practical Skills</h4><p>Science labs, computer suites, and hands-on activities prepare students for real-world challenges.</p></div>
+    <div class="plc"><span class="idx">05</span><h4>Community Spirit</h4><p>Students, parents, and teachers work as one towards shared goals in a genuinely caring environment.</p></div>
+    <div class="plc"><span class="idx">06</span><h4>Future Ready</h4><p>We prepare graduates for university, career, and citizenship — locally grounded, globally competitive.</p></div>
+  </div>
+</div></section>
+
+<!-- ABOUT SNAPSHOT -->
+<section class="sec">
+<div class="sec-inner">
+  <div class="as2">
+    <div class="mos rv-l">
+      <div class="big ihov"><img src="images/event-parade.jpg" alt="Students"></div>
+      <div class="sm ihov"><img src="images/students-backpacks.jpg" alt="Sports"></div>
+      <div class="sm ihov"><img src="images/students-group-1.jpg" alt="Graduation"></div>
+    </div>
+    <div class="rv-r">
+      <span class="s-lbl">Our Story</span>
+      <h2 class="s-title">15 Years of <em>Shaping Futures</em></h2>
+      <p class="lead" style="margin-bottom:var(--s-md);">Founded on <strong style="color:#fff;">May 5, 2010</strong> in Ifo, Ogun State, Al-Lateef started with 80 students and a bold vision — quality education built on discipline and strong values. Today, 15 years on, over 1,200 students study across two thriving schools.</p>
+      <div class="ms"><span class="ms-y">2010</span><p class="ms-t"><strong>School founded</strong> — Nursery &amp; Primary opens May 5 with 80 students.</p></div>
+      <div class="ms"><span class="ms-y">2013</span><p class="ms-t"><strong>Model College launched</strong> — Secondary division opens for growing alumni.</p></div>
+      <div class="ms"><span class="ms-y">2016</span><p class="ms-t"><strong>First WAEC — 100% pass rate</strong> — A landmark achievement.</p></div>
+      <div class="ms"><span class="ms-y">2020</span><p class="ms-t"><strong>10-Year milestone</strong> — New science lab, library &amp; ICT centre.</p></div>
+      <div class="ms"><span class="ms-y">2025</span><p class="ms-t"><strong>15 Years!</strong> — 5,000+ alumni, 1,200 students. A legacy to be proud of.</p></div>
+      <a href="pages/about.html#milestones" class="btn btn-secondary" style="margin-top:var(--s-md);">Read Full Story <span class="arr">→</span></a>
+    </div>
+  </div>
+  <!-- gallery strip -->
+  <div class="gstrip rv-s">
+    <div><img src="images/gate-model-college.jpg" alt="School"></div>
+    <div><img src="images/building-classrooms.jpg" alt="Class"></div>
+    <div><img src="images/event-parade.jpg" alt="Students"></div>
+  </div>
+</div></section>
+
+<!-- EVENTS -->
+<section class="sec sec-alt">
+<div class="sec-inner">
+  <div class="s-head-row rv">
+    <div><span class="s-lbl">School Calendar</span><h2 class="s-title">Upcoming <em>Events</em></h2></div>
+    <a href="pages/academics.html#calendar" class="btn-link">Full Calendar <span class="arr">→</span></a>
+  </div>
+  <div class="evg stag">
+    <div class="evc"><div class="ev-d"><span class="ev-day">15</span><div class="ev-my">July 2025</div></div><div class="ev-b"><h4>New Session Resumption</h4><p>2025/2026 session begins. All students report with documents and fees paid.</p><span class="chip chip-gold">Academic</span></div></div>
+    <div class="evc"><div class="ev-d"><span class="ev-day">22</span><div class="ev-my">Aug 2025</div></div><div class="ev-b"><h4>Inter-House Sports Day</h4><p>Annual sports competition with track events, team sports, and cultural performances.</p><span class="chip chip-gold">Sports</span></div></div>
+    <div class="evc"><div class="ev-d"><span class="ev-day">10</span><div class="ev-my">Sep 2025</div></div><div class="ev-b"><h4>Parents–Teachers Forum</h4><p>Mid-term meeting. Collect report cards and meet your child's form teachers.</p><span class="chip chip-gold">Parents</span></div></div>
+  </div>
+</div></section>
+
+<!-- TESTIMONIALS -->
+<section class="sec">
+<div class="sec-inner">
+  <div class="s-head">
+    <span class="s-lbl rv">Testimonials</span>
+    <h2 class="s-title rv">Voices of Our <em>Community</em></h2>
+  </div>
+  <div class="tg stag">
+    <div class="tq"><div class="stars">★★★★★</div><p>"Al-Lateef is more than a school — it is a community. My son graduated with outstanding results and even better character. Incredibly proud of what this institution has built over 15 years."</p><div class="ta"><div class="tav">HA</div><div class="tin"><strong>Mrs. Aminat Badmus</strong><span>Parent, Model College</span></div></div></div>
+    <div class="tq"><div class="stars">★★★★★</div><p>"The teachers genuinely care about every child. The discipline, teaching quality, and values are second to none. My children have thrived beyond every expectation I had."</p><div class="ta"><div class="tav">MO</div><div class="tin"><strong>Mr. Mustapha Oladapo</strong><span>Parent, Nursery &amp; Primary</span></div></div></div>
+    <div class="tq"><div class="stars">★★★★★</div><p>"I'm a proud Al-Lateef alumnus. This school gave me the academic confidence and moral clarity to pursue medicine at the University of Ibadan. Forever grateful."</p><div class="ta"><div class="tav">FA</div><div class="tin"><strong>Fatimah Adeyemi</strong><span>Alumnus, Class of 2022</span></div></div></div>
+  </div>
+</div></section>
+
+<!-- ADMISSIONS CTA -->
+<section class="sec sec-band">
+<div class="sec-inner rv">
+  <span class="s-lbl">Admissions Open</span>
+  <h2 class="s-title" style="max-width:760px;">Enrol Your Child for <em>2025/2026 Session</em></h2>
+  <p class="s-sub" style="color:var(--tertiary);">Applications open — Nursery through SSS 3. Limited places available.</p>
+  <div class="asteps">
+    <div class="astp"><span class="asc">01</span><span class="asl">Download Form</span></div>
+    <div class="astp"><span class="asc">02</span><span class="asl">Submit Application</span></div>
+    <div class="astp"><span class="asc">03</span><span class="asl">Entrance Exam</span></div>
+    <div class="astp"><span class="asc">04</span><span class="asl">Offer Letter</span></div>
+    <div class="astp"><span class="asc">05</span><span class="asl">Pay &amp; Enrol</span></div>
+  </div>
+  <div class="cta-btns">
+    <a href="pages/admissions.html#apply" class="btn btn-primary">Start Application <span class="arr">→</span></a>
+    <a href="pages/fees.html" class="btn btn-secondary">Pay Acceptance Fee <span class="arr">→</span></a>
+    <a href="pages/contact.html" class="btn btn-secondary">Contact Admissions <span class="arr">→</span></a>
+  </div>
+</div></section>
+
+<!-- PAY FEES MINI -->
+<section class="sec sec-alt">
+<div class="sec-inner"><div class="fee-in">
+  <div class="rv-l">
+    <span class="s-lbl">Online Payments</span>
+    <h2 class="s-title">Pay School Fees <em>Online</em></h2>
+    <p class="s-sub" style="margin-bottom:var(--s-md);">Fast, secure, instantly confirmed. Powered by Paystack.</p>
+    <div class="fip"><div class="fic">01</div><div class="fit"><strong>Instant Receipt</strong><p>Official receipt sent to your email immediately</p></div></div>
+    <div class="fip"><div class="fic">02</div><div class="fit"><strong>100% Secure</strong><p>Bank-level SSL encryption via Paystack</p></div></div>
+    <div class="fip"><div class="fic">03</div><div class="fit"><strong>All Methods Accepted</strong><p>Card, bank transfer, USSD, mobile money</p></div></div>
+    <a href="pages/fees.html" class="btn btn-secondary" style="margin-top:var(--s-md);">Full Payment Page <span class="arr">→</span></a>
+  </div>
+  <div class="rv-r">
+    <div class="fcard" id="pFrm">
+      <h3>Quick Payment</h3>
+      <p>Fill in details to proceed to secure checkout</p>
+      <div class="fg"><label>Class Level</label>
+        <select id="pCls" onchange="pUpd()">
+          <option value="">— Select class —</option>
+          <option value="45000">Nursery 1 / 2</option>
+          <option value="48000">Kindergarten</option>
+          <option value="52000">Primary 1–3</option>
+          <option value="55000">Primary 4–6</option>
+          <option value="65000">JSS 1–3</option>
+          <option value="72000">SSS 1–3</option>
+        </select>
+      </div>
+      <div class="f2">
+        <div class="fg"><label>Student ID</label><input type="text" id="pStu" placeholder="AL-2025-001"></div>
+        <div class="fg"><label>Term</label><select><option>First Term</option><option>Second Term</option><option>Third Term</option></select></div>
+      </div>
+      <div class="fg"><label>Parent Name</label><input type="text" id="pNm" placeholder="Full name"></div>
+      <div class="fg"><label>Email for Receipt</label><input type="email" id="pEm" placeholder="email@example.com"></div>
+      <div class="amtd"><span>Total Due</span><strong id="pAmt">₦0.00</strong></div>
+      <button class="sbtn" onclick="doPay()">Proceed to Secure Payment</button>
+      <div class="pilbs"><span class="chip">Paystack</span><span class="chip">Visa</span><span class="chip">Mastercard</span><span class="chip">Verve</span><span class="chip">USSD</span></div>
+    </div>
+    <div class="psuc fcard" id="pOk">
+      <div class="sic2">Confirmed</div>
+      <h3>Payment Successful!</h3>
+      <p>Confirmed! A receipt has been sent to your email.</p>
+      <p style="font-size:14px;color:var(--muted);">Ref: <strong id="pRef" style="color:var(--primary-hi);font-weight:400;"></strong></p>
+      <button onclick="pReset()" class="btn btn-primary btn-block" style="margin-top:var(--s-md);">Make Another Payment <span class="arr">→</span></button>
+    </div>
+  </div>
+</div></div></section>
+
+<!-- PORTALS -->
+<section class="sec">
+<div class="sec-inner">
+  <div class="s-head">
+    <span class="s-lbl rv">Digital Portals</span>
+    <h2 class="s-title rv">Your School <em>At Your Fingertips</em></h2>
+    <p class="s-sub rv">Dedicated secure portals for every member of the Al-Lateef community.</p>
+  </div>
+  <div class="pcg stag">
+    <div class="pc" onclick="openModal('student')"><span class="idx">01</span><h4>Student Portal</h4><p>Results, timetables &amp; assignments</p><ul class="pcfl"><li>View exam results</li><li>Download timetables</li><li>Submit assignments</li><li>E-library access</li></ul><button class="btn-link">Login <span class="arr">→</span></button></div>
+    <div class="pc" onclick="openModal('teacher')"><span class="idx">02</span><h4>Teacher Portal</h4><p>Classes, grades &amp; attendance</p><ul class="pcfl"><li>Enter student scores</li><li>Mark attendance</li><li>Upload lesson notes</li><li>Access payslips</li></ul><button class="btn-link">Login <span class="arr">→</span></button></div>
+    <div class="pc" onclick="openModal('parent')"><span class="idx">03</span><h4>Parent Portal</h4><p>Track progress &amp; pay fees</p><ul class="pcfl"><li>Track progress</li><li>Pay fees online</li><li>Download reports</li><li>Message teachers</li></ul><button class="btn-link">Login <span class="arr">→</span></button></div>
+    <div class="pc" onclick="openModal('mgmt')"><span class="idx">04</span><h4>Management Portal</h4><p>Full school administration</p><ul class="pcfl"><li>Analytics dashboard</li><li>Financial reports</li><li>Staff management</li><li>Admissions tools</li></ul><button class="btn-link">Login <span class="arr">→</span></button></div>
+  </div>
+</div></section>
+
+<div id="siteFooter"></div>
+<div id="mRoot"></div>
+<script src="shared.js"></script>
+<script>
+window._pg='home';
+function pUpd(){var v=document.getElementById('pCls').value;document.getElementById('pAmt').textContent=v?'₦'+parseInt(v).toLocaleString()+'.00':'₦0.00';}
+function doPay(){
+  var v=document.getElementById('pCls').value,e=document.getElementById('pEm').value,n=document.getElementById('pNm').value;
+  if(!v||!e||!n){alert('Please fill in all required fields.');return;}
+  var ref='AL-'+Date.now();
+  document.getElementById('pFrm').style.display='none';
+  document.getElementById('pOk').classList.add('on');
+  document.getElementById('pRef').textContent=ref;
+}
+function pReset(){
+  document.getElementById('pFrm').style.display='block';
+  document.getElementById('pOk').classList.remove('on');
+  ['pCls','pStu','pNm','pEm'].forEach(function(id){document.getElementById(id).value='';});
+  document.getElementById('pAmt').textContent='₦0.00';
+}
+</script>
+</body></html>

@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Al-Lateef Group of Schools</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  color-scheme:dark;
+  --primary:#c8960a;      /* school gold */
+  --primary-hi:#f0c040;   /* light gold */
+  --on-primary:#0a1a0f;
+  --secondary:#0a3d1f;    /* deep school green */
+  --surface:#0a1a0f;      /* near-black green */
+  --tertiary:rgba(212,241,224,.65);
+  --muted:rgba(255,255,255,.68);
+  --faint:rgba(255,255,255,.44);
+  --line:rgba(212,241,224,.16);
+  --card-border:rgba(212,241,224,.22);
+  --arrow:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 12'%3E%3Cpath d='M0 6h16.4M11.4 1l5 5-5 5' fill='none' stroke='%23000' stroke-width='1.4'/%3E%3C/svg%3E");
+}
+html,body{
+  width:100%;height:100%;overflow:hidden;
+  background:var(--surface);color:#fff;
+  font-family:'Inter Tight',sans-serif;-webkit-font-smoothing:antialiased;
+}
+.arr{display:inline-block;width:18px;height:12px;background:currentColor;-webkit-mask:var(--arrow) no-repeat center/contain;mask:var(--arrow) no-repeat center/contain;}
+
+/* ── BACKGROUND ── */
+#bg{
+  position:fixed;inset:0;z-index:0;
+  background-image:url('images/gate-model-college.jpg');
+  background-size:cover;background-position:center;
+  transition:opacity 1s ease;
+}
+#bg-overlay{
+  position:fixed;inset:0;z-index:1;
+  background:linear-gradient(180deg,rgba(10,26,15,.94) 0%,rgba(10,26,15,.86) 55%,rgba(10,26,15,.97) 100%);
+}
+
+/* ── PARTICLES ── */
+#particles{position:fixed;inset:0;z-index:2;pointer-events:none;}
+.pt{position:absolute;background:rgba(240,192,64,.5);animation:floatUp linear infinite;}
+@keyframes floatUp{
+  from{transform:translateY(105vh);opacity:0;}
+  8%{opacity:1;} 85%{opacity:.25;}
+  to{transform:translateY(-8vh);opacity:0;}
+}
+
+/* ── SKIP / MUTE ── */
+#skip-btn,#mute-btn{
+  position:fixed;top:20px;z-index:100;
+  align-items:center;gap:12px;
+  background:rgba(10,26,15,.6);border:1px solid var(--card-border);color:#fff;
+  font-family:inherit;font-size:14px;line-height:21px;font-weight:400;
+  padding:10px 18px;cursor:pointer;
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  transition:border-color .2s,color .2s;
+}
+#skip-btn{right:20px;display:flex;opacity:0;animation:fadeUp .6s 1.2s ease forwards;}
+#mute-btn{left:20px;display:none;}
+#skip-btn:hover,#mute-btn:hover{border-color:var(--primary-hi);color:var(--primary-hi);}
+
+/* ── PROGRESS BAR ── */
+#prog-track{position:fixed;bottom:0;left:0;right:0;height:2px;background:var(--line);z-index:100;}
+#prog-fill{height:100%;width:0%;background:var(--primary);}
+#timer-lbl{
+  position:fixed;bottom:14px;right:20px;z-index:100;
+  font-size:12px;line-height:18px;color:var(--faint);font-variant-numeric:tabular-nums;
+}
+
+/* ── SOUND PROMPT ── */
+#sound-prompt{
+  position:fixed;inset:0;z-index:200;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  background:var(--surface);text-align:center;padding:40px 20px;
+  transition:opacity .5s ease;
+}
+.sp-logo{width:72px;height:72px;border-radius:9999px;background:#fff;padding:4px;margin-bottom:40px;}
+.sp-logo img{width:100%;height:100%;object-fit:contain;border-radius:9999px;}
+#sound-prompt h3{
+  font-size:clamp(32px,4.4vw,47px);line-height:1.15;font-weight:300;color:#fff;margin-bottom:20px;
+}
+#sound-prompt h3 em{font-style:normal;color:var(--primary-hi);}
+#sound-prompt p{font-size:18px;line-height:27px;font-weight:300;color:var(--muted);margin-bottom:40px;}
+#sound-prompt .sp-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.sp-btn{
+  display:inline-flex;align-items:center;justify-content:space-between;gap:20px;
+  min-width:205px;min-height:81px;padding:14px 20px;
+  font-family:inherit;font-size:16px;line-height:24px;font-weight:400;
+  border:1px solid transparent;border-radius:0;cursor:pointer;transition:background .2s,border-color .2s,color .2s;
+}
+.sp-btn.yes{background:var(--primary);color:var(--on-primary);}
+.sp-btn.yes:hover{background:var(--primary-hi);}
+.sp-btn.no{background:transparent;color:#fff;border-color:var(--tertiary);}
+.sp-btn.no:hover{border-color:var(--primary-hi);color:var(--primary-hi);}
+
+/* ── MAIN STAGE ── */
+#stage{
+  position:fixed;inset:0;z-index:10;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:100px 40px 60px;
+}
+
+/* ── SCHOOL ID ── */
+#school-id{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  display:flex;align-items:center;justify-content:center;gap:14px;padding:16px 140px;
+  opacity:0;animation:fadeUp .7s .5s ease forwards;
+}
+#school-id .id-logo{width:44px;height:44px;border-radius:9999px;background:#fff;flex-shrink:0;padding:3px;overflow:hidden;}
+#school-id .id-logo img{width:100%;height:100%;object-fit:contain;border-radius:9999px;}
+#school-id .id-name{font-size:17px;line-height:22px;font-weight:400;color:#fff;}
+#school-id .id-name span{display:block;font-size:12px;line-height:18px;color:var(--faint);}
+
+/* ── ACHIEVEMENTS ── */
+#ach-wrap{width:100%;max-width:1100px;display:flex;flex-direction:column;align-items:flex-start;}
+.ach-label{
+  display:inline-flex;align-items:center;gap:12px;
+  font-size:14px;line-height:21px;color:var(--primary-hi);margin-bottom:20px;
+  opacity:0;animation:fadeUp .6s .8s ease forwards;
+}
+.ach-label::before{content:'';width:28px;height:1px;background:currentColor;}
+.ach-title{
+  font-size:clamp(36px,5.6vw,64px);line-height:1.2;font-weight:300;color:#fff;margin-bottom:40px;max-width:900px;
+  opacity:0;animation:fadeUp .7s 1s ease forwards;
+}
+.ach-title em{font-style:normal;color:var(--primary-hi);}
+
+.ach-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);width:100%;
+  border-top:1px solid var(--card-border);margin-bottom:40px;
+}
+.ach-card{
+  padding:28px 20px 28px 20px;border-left:1px solid var(--line);
+  opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease;
+}
+.ach-card:first-child{border-left:none;padding-left:0;}
+.ach-card.show{opacity:1;transform:none;}
+.ach-card .ac-num{display:block;font-size:clamp(32px,4.4vw,47px);line-height:1.15;font-weight:300;color:#fff;margin-bottom:6px;}
+.ach-card .ac-lbl{font-size:14px;line-height:21px;color:var(--muted);}
+
+.ach-milestones{display:flex;flex-wrap:wrap;gap:8px;width:100%;}
+.ach-mile{
+  display:flex;align-items:baseline;gap:12px;
+  border:1px solid var(--card-border);padding:12px 16px;
+  opacity:0;transform:translateY(10px);transition:opacity .5s ease,transform .5s ease;
+}
+.ach-mile.show{opacity:1;transform:none;}
+.ach-mile .am-yr{font-size:14px;line-height:21px;color:var(--primary-hi);}
+.ach-mile .am-txt{font-size:14px;line-height:21px;color:#fff;}
+
+#tagline{
+  margin-top:40px;font-size:18px;line-height:27px;font-weight:300;color:var(--muted);
+  opacity:0;animation:fadeUp .7s 2.8s ease forwards;
+}
+#tagline em{color:var(--primary-hi);font-style:normal;}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:none;}}
+body.exiting{transition:opacity .6s ease;opacity:0;}
+
+@media(max-width:860px){
+  #stage{padding:96px 20px 48px;justify-content:flex-start;overflow-y:auto;}
+  #school-id{justify-content:flex-start;padding:16px 20px;}
+  #school-id .id-name span{display:none;}
+  #skip-btn{top:20px;}
+  .ach-grid{grid-template-columns:repeat(2,1fr);}
+  .ach-card:nth-child(3){border-left:none;padding-left:0;}
+  .ach-card:nth-child(n+3){border-top:1px solid var(--line);}
+  .ach-title{margin-bottom:28px;}
+}
+@media(max-width:420px){
+  #school-id .id-name{font-size:15px;}
+  .ach-mile{padding:10px 12px;}
+  .sp-btn{width:100%;}
+}
+@media(prefers-reduced-motion:reduce){
+  .ach-card,.ach-mile{transition:none;}
+  *{animation-duration:.01ms !important;}
+}
+</style>
+</head>
+<body>
+
+<!-- Sound prompt -->
+<div id="sound-prompt">
+  <div class="sp-logo"><img src="images/logo-model-college.png" alt="Al-Lateef logo"></div>
+  <h3>Al-Lateef <em>Group of Schools</em></h3>
+  <p>Would you like background music with the intro?</p>
+  <div class="sp-row">
+    <button class="sp-btn yes" onclick="startIntro(true)">Play with Sound <span class="arr"></span></button>
+    <button class="sp-btn no"  onclick="startIntro(false)">No Sound <span class="arr"></span></button>
+  </div>
+</div>
+
+<!-- Mute -->
+<button id="mute-btn" onclick="toggleMute()">
+  <span id="mute-icon"></span><span id="mute-lbl">Mute</span>
+</button>
+
+<!-- Skip -->
+<button id="skip-btn" onclick="goToSite()">Skip <span class="arr"></span></button>
+
+<!-- Background -->
+<div id="bg"></div>
+<div id="bg-overlay"></div>
+<div id="particles"></div>
+
+<!-- School ID header -->
+<div id="school-id">
+  <div class="id-logo"><img src="images/logo-model-college.png" alt="Al-Lateef logo"></div>
+  <div class="id-name">
+    Al-Lateef Group of Schools
+    <span>Ifo, Ogun State · Est. May 2010</span>
+  </div>
+</div>
+
+<!-- Main content -->
+<div id="stage">
+  <div id="ach-wrap">
+
+    <div class="ach-label">Our Achievements</div>
+    <div class="ach-title">15 Years of <em>Shaping Futures</em></div>
+
+    <!-- 4 stat cards -->
+    <div class="ach-grid">
+      <div class="ach-card" data-delay="0">
+        <span class="ac-num">5,000+</span>
+        <div class="ac-lbl">Alumni Produced</div>
+      </div>
+      <div class="ach-card" data-delay="120">
+        <span class="ac-num">1,200+</span>
+        <div class="ac-lbl">Current Students</div>
+      </div>
+      <div class="ach-card" data-delay="240">
+        <span class="ac-num">98%</span>
+        <div class="ac-lbl">WAEC &amp; NECO Pass Rate</div>
+      </div>
+      <div class="ach-card" data-delay="360">
+        <span class="ac-num">15 Yrs</span>
+        <div class="ac-lbl">Academic Excellence</div>
+      </div>
+    </div>
+
+    <!-- Milestone pills -->
+    <div class="ach-milestones">
+      <div class="ach-mile" data-delay="600">
+        <span class="am-yr">2010</span>
+        <span class="am-txt">School Founded</span>
+      </div>
+      <div class="ach-mile" data-delay="720">
+        <span class="am-yr">2013</span>
+        <span class="am-txt">Model College Opened</span>
+      </div>
+      <div class="ach-mile" data-delay="840">
+        <span class="am-yr">2016</span>
+        <span class="am-txt">First WAEC — 100% Pass</span>
+      </div>
+      <div class="ach-mile" data-delay="960">
+        <span class="am-yr">2020</span>
+        <span class="am-txt">New Science Lab &amp; ICT Centre</span>
+      </div>
+      <div class="ach-mile" data-delay="1080">
+        <span class="am-yr">2025</span>
+        <span class="am-txt">60+ Qualified Staff</span>
+      </div>
+    </div>
+
+    <div id="tagline">Shaping futures in Ogun State — <em>one child at a time.</em></div>
+
+  </div>
+</div>
+
+<!-- Progress -->
+<div id="prog-track"><div id="prog-fill"></div></div>
+<div id="timer-lbl">0:30</div>
+
+<script>
+// ── CONFIG ────────────────────────────────────────────────────────────────
+const TOTAL = 30; // exactly 30 seconds
+
+// ── STATE ─────────────────────────────────────────────────────────────────
+let startTime = null;
+let raf = null;
+let audioCtx = null;
+let masterGain = null;
+let isMuted = false;
+
+const progFill  = document.getElementById('prog-fill');
+const timerLbl  = document.getElementById('timer-lbl');
+const muteBtn   = document.getElementById('mute-btn');
+const muteIcon  = document.getElementById('mute-icon');
+const muteLbl   = document.getElementById('mute-lbl');
+
+// ── UTILS ─────────────────────────────────────────────────────────────────
+function pad(n){ return String(Math.floor(n)).padStart(2,'0'); }
+
+// ── ANIMATE CARDS IN ─────────────────────────────────────────────────────
+function revealCards(){
+  document.querySelectorAll('.ach-card, .ach-mile').forEach(el => {
+    const delay = parseInt(el.dataset.delay || '0');
+    setTimeout(() => el.classList.add('show'), delay + 900);
+  });
+}
+
+// ── AUDIO ─────────────────────────────────────────────────────────────────
+function initAudio(){
+  try{
+    audioCtx   = new (window.AudioContext || window.webkitAudioContext)();
+    masterGain = audioCtx.createGain();
+    masterGain.gain.setValueAtTime(0, audioCtx.currentTime);
+    masterGain.gain.linearRampToValueAtTime(0.5, audioCtx.currentTime + 2.5);
+    masterGain.connect(audioCtx.destination);
+
+    // Warm pad — C maj7 chord
+    [130.81,164.81,196.00,246.94,261.63,329.63].forEach((f,i) => {
+      const osc  = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      const filt = audioCtx.createBiquadFilter();
+      osc.type = i % 2 === 0 ? 'sine' : 'triangle';
+      osc.frequency.value = f;
+      // soft vibrato
+      const lfo  = audioCtx.createOscillator();
+      const lfoG = audioCtx.createGain();
+      lfo.frequency.value = 0.2 + i*0.03;
+      lfoG.gain.value = 0.5;
+      lfo.connect(lfoG); lfoG.connect(osc.frequency); lfo.start();
+      filt.type = 'lowpass'; filt.frequency.value = 800;
+      const vol = i < 3 ? 0.09 : 0.06;
+      gain.gain.setValueAtTime(0, audioCtx.currentTime);
+      gain.gain.linearRampToValueAtTime(vol, audioCtx.currentTime + 2.5 + i*0.3);
+      osc.connect(filt); filt.connect(gain); gain.connect(masterGain);
+      osc.start();
+    });
+
+    // Gentle melody
+    playMelody();
+
+    // Soft kick every 2s
+    playKick();
+
+    // Fade out at 26s
+    setTimeout(() => {
+      if(masterGain && audioCtx){
+        masterGain.gain.linearRampToValueAtTime(0, audioCtx.currentTime + 4);
+      }
+    }, 26000);
+
+  } catch(e){ console.warn('Audio unavailable', e); }
+}
+
+const MEL = [261.63,293.66,329.63,392.00,349.23,392.00,440.00,392.00,329.63,261.63,0];
+let melIdx = 0;
+function playMelody(){
+  if(!audioCtx){ setTimeout(playMelody,900); return; }
+  const f = MEL[melIdx++ % MEL.length];
+  if(f > 0 && !isMuted){
+    const osc  = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
+    const filt = audioCtx.createBiquadFilter();
+    osc.type='sine'; osc.frequency.value = f*2;
+    filt.type='bandpass'; filt.frequency.value=f*2; filt.Q.value=10;
+    const t = audioCtx.currentTime;
+    gain.gain.setValueAtTime(0,t);
+    gain.gain.linearRampToValueAtTime(0.09,t+0.04);
+    gain.gain.exponentialRampToValueAtTime(0.001,t+1.5);
+    osc.connect(filt); filt.connect(gain); gain.connect(masterGain);
+    osc.start(t); osc.stop(t+1.7);
+  }
+  setTimeout(playMelody, 820 + Math.random()*160);
+}
+
+function playKick(){
+  if(!audioCtx){ setTimeout(playKick,2000); return; }
+  if(!isMuted){
+    const osc  = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
+    const t = audioCtx.currentTime;
+    osc.frequency.setValueAtTime(75,t);
+    osc.frequency.exponentialRampToValueAtTime(28,t+0.17);
+    gain.gain.setValueAtTime(0.16,t);
+    gain.gain.exponentialRampToValueAtTime(0.001,t+0.2);
+    osc.connect(gain); gain.connect(masterGain);
+    osc.start(t); osc.stop(t+0.22);
+  }
+  setTimeout(playKick, 2000);
+}
+
+function toggleMute(){
+  if(!audioCtx) return;
+  isMuted = !isMuted;
+  const t = audioCtx.currentTime;
+  masterGain.gain.linearRampToValueAtTime(isMuted ? 0 : 0.5, t+0.3);
+  muteIcon.textContent = '';
+  muteLbl.textContent  = isMuted ? 'Unmute' : 'Mute';
+}
+
+// ── MAIN LOOP ─────────────────────────────────────────────────────────────
+function tick(){
+  const elapsed = (Date.now() - startTime) / 1000;
+  const pct = Math.min(elapsed / TOTAL, 1);
+
+  progFill.style.width = (pct * 100) + '%';
+  const rem = Math.max(0, TOTAL - elapsed);
+  timerLbl.textContent = '0:' + pad(rem);
+
+  if(pct >= 1){ goToSite(); return; }
+  raf = requestAnimationFrame(tick);
+}
+
+// ── PROMPT HANDLER ────────────────────────────────────────────────────────
+function startIntro(withSound){
+  const el = document.getElementById('sound-prompt');
+  el.style.opacity = '0';
+  el.style.pointerEvents = 'none';
+  setTimeout(() => el.style.display='none', 500);
+
+  if(withSound){
+    initAudio();
+    muteBtn.style.display = 'flex';
+  }
+
+  revealCards();
+  startTime = Date.now();
+  raf = requestAnimationFrame(tick);
+}
+
+// ── EXIT ──────────────────────────────────────────────────────────────────
+function goToSite(){
+  if(raf) cancelAnimationFrame(raf);
+  if(masterGain && audioCtx)
+    masterGain.gain.linearRampToValueAtTime(0, audioCtx.currentTime + 0.8);
+  document.body.classList.add('exiting');
+  setTimeout(() => { window.location.href = 'index.html'; }, 700);
+}
+
+document.getElementById('skip-btn').addEventListener('click', goToSite);
+
+// ── PARTICLES ─────────────────────────────────────────────────────────────
+(function(){
+  const pc = document.getElementById('particles');
+  for(let i=0;i<20;i++){
+    const p = document.createElement('div');
+    p.className = 'pt';
+    const sz = Math.random()*2+1.5;
+    p.style.cssText=`width:${sz}px;height:${sz}px;left:${Math.random()*100}%;animation-duration:${9+Math.random()*14}s;animation-delay:-${Math.random()*18}s;opacity:${0.12+Math.random()*.35};`;
+    pc.appendChild(p);
+  }
+})();
+</script>
+</body>
+</html>
